@@ -1,0 +1,11 @@
+.motionDash{
+    animation: motionDash .5s linear;
+}
+@keyframes motionDash {
+    0%{
+        transform:translateY(10%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
