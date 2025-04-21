@@ -17,11 +17,11 @@ function Footer() {
                   <Link className='text-3xl text-white'>About Us</Link>
                   <Link className='text-3xl text-white'>Careers</Link>
                   <Link className='text-3xl text-white'>FAQs</Link>
-                  <Link className='text-3xl text-white'>Terns & Conditions</Link>
+                  <Link className='text-3xl text-white'>Terms & Conditions</Link>
                 </div>
               </div>
           </div>
-          <h1 className='text-9xl text-gray-500 font-bold whitespace-nowrap w-full flex justify-center absolute bottom-0'>KNOW YOUR COLLEGES</h1>
+          {/* <h1 className='text-9xl text-gray-500 font-bold whitespace-nowrap w-full flex justify-center absolute bottom-0'>KNOW YOUR COLLEGES</h1> */}
       </div>
     </>
   )

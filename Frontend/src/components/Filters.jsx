@@ -6,7 +6,7 @@ function Filters() {
     <div className='w-full bg-black/10 text-black'>
         <div className='w-full flex justify-between p-6'>
             <h1 className='text-5xl font-semibold'>Find Mentors-</h1>
-            <button className='text-xl font-bold flex gap-3 items-center w-90 justify-center rounded-4xl bg-[#43f490cf] cursor-pointer'>VIEW ALL<i className="ri-graduation-cap-line text-3xl"></i></button>
+            <button className='text-xl font-bold flex gap-3 items-center w-90 justify-center rounded-4xl bg-[#43f490cf] cursor-pointer hover:bg-green-400'>VIEW ALL<i className="ri-graduation-cap-line text-3xl"></i></button>
         </div>
         <div className='w-full h-20 bg-[#70B2FF] flex px-6 items-center justify-between'>
           <div className='flex gap-4 items-center'>
