@@ -93,7 +93,7 @@ const students = [
   // Add more students...
 ];
 
-export default function AutoScrollCards() {
+export default function AutoScrollCards2() {
   const containerRef = useRef(null);
   const [hoveredCard, setHoveredCard] = useState(null);
   const intervalRef = useRef(null);
@@ -122,7 +122,7 @@ export default function AutoScrollCards() {
 
   return (
     <div className="relative w-full overflow-hidden">
-      <div className="flex space-x-6 overflow-x-scroll scroll-smooth px-4 py-8" ref={containerRef} onMouseEnter={stopAutoScroll} onMouseLeave={startAutoScroll}>
+      <div className="flex space-x-6 scroll-hide overflow-x-scroll scroll-smooth px-4 py-8" ref={containerRef} onMouseEnter={stopAutoScroll} onMouseLeave={startAutoScroll}>
         {students.map((student, index) => (
           <div key={index} className="relative flex-shrink-0 w-80 h-100 bg-white shadow-md rounded-xl cursor-pointer hover:shadow-xl transition" onMouseEnter={() => setHoveredCard(index)} onMouseLeave={() => setHoveredCard(null)}>
             <img src={student.img} alt={student.name} className="w-full h-full object-cover rounded-xl mb-4"/>
