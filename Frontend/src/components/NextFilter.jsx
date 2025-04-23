@@ -7,8 +7,8 @@ function NextFilter() {
     <div className='w-full bg-black/10 text-black'>
       {/* Header */}
       <div className='w-full flex flex-col sm:flex-row items-start sm:items-center justify-between p-6 gap-4'>
-        <h1 className='text-3xl sm:text-4xl md:text-5xl font-semibold'>Find Colleges-</h1>
-        <button className='text-lg sm:text-xl font-bold flex gap-2 sm:gap-3 items-center px-4 py-2 rounded-full bg-[#43f490cf] cursor-pointer hover:bg-green-400 w-full'>
+        <h1 className='text-3xl sm:text-4xl md:text-5xl font-semibold whitespace-nowrap'>Find Colleges-</h1>
+        <button className='text-lg sm:text-xl font-bold flex gap-2 sm:gap-3 items-center px-4 py-2 rounded-full bg-[#43f490cf] cursor-pointer hover:bg-green-400 w-60 justify-center'>
           VIEW ALL
           <i className="ri-graduation-cap-line text-2xl sm:text-3xl"></i>
         </button>

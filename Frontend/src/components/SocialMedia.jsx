@@ -8,11 +8,11 @@ const socials = [
   },
   {
     name: 'Linkedin',
-    image: '/insta.png',
+    image: '/linkedin.png',
   },
   {
     name: 'Twitter',
-    image: '/insta.png',
+    image: '/twitter.png',
   },
 ];
 
@@ -57,7 +57,7 @@ const SocialMedia = () => {
 
       {/* Right Section */}
       <div className="w-full lg:w-[100%] mt-6 lg:mt-0 relative">
-        <div className="relative w-full h-84 sm:h-84 md:h-84 lg:h-full bg-red-500 border-4 border-white rounded-2xl overflow-hidden shadow-lg">
+        <div className="relative w-full h-full py-5 sm:h-84 md:h-84 lg:h-full rounded-2xl overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.img
               key={socials[index].image}

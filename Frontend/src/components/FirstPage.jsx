@@ -16,22 +16,22 @@ function FirstPage() {
   }, []);
 
   return (
-    <div className="h-screen w-full bg-[#06FA6F] relative overflow-hidden">
+    <div className="h-screen w-full bg-[#56DE88] relative overflow-hidden">
       <img
         src="/KYC2.png"
         alt="theme"
-        className="absolute top-0 left-0 h-full w-full object-cover"
+        className="absolute top-0 left-0 h-full w-full object-cover opacity-65"
       />
       <div className="relative flex flex-col md:flex-row justify-between  px-6 md:px-10 py-12 h-full gap-10">
         <div className="w-full md:w-[50%] text-center md:text-left">
-          <h1 className="text-6xl sm:text-8xl md:text-7xl lg:text-8xl font-bold leading-tight">
+          <h1 className="text-6xl sm:text-8xl md:text-7xl lg:text-8xl font-bold leading-24 ml-10 tracking-wide">
             KNOW <br /> YOUR <br /> COLLEGES
           </h1>
         </div>
         <div className="w-full md:w-[50%] flex justify-center text-center">
           <p
             key={changeText}
-            className="mb-40 text-3xl sm:text-4xl sm:mb-40 md:text-5xl font-bold motionDash"
+            className="mb-40 text-3xl sm:text-4xl sm:mb-40 md:text-5xl font-bold motionDash text-end"
             dangerouslySetInnerHTML={{ __html: texts[changeText] }}
           ></p>
         </div>
