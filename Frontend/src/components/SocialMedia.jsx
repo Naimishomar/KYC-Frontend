@@ -27,7 +27,7 @@ const SocialMedia = () => {
   }, []);
 
   return (
-    <div className="bg-[#57fd9fe6] text-black flex flex-col lg:flex-row p-6 lg:p-10 justify-between gap-8 relative">
+    <div className="bg-[#57fd9fe6] text-black flex flex-col lg:flex-row p-6 lg:p-10 justify-between gap-8 relative h-[150vh]">
       
       {/* Left Section */}
       <div className="flex flex-col w-full lg:w-[45%]">

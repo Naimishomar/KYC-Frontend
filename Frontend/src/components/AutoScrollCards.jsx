@@ -121,7 +121,10 @@ export default function AutoScrollCards2() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden bg-[#F3F3F3]">
+      <div className="w-full mt-4">
+        <img src="/arrow.png" alt="" className="mx-auto w-1/4" />
+      </div>
       <div className="flex space-x-6 scroll-hide overflow-x-scroll scroll-smooth px-4 py-8" ref={containerRef} onMouseEnter={stopAutoScroll} onMouseLeave={startAutoScroll}>
         {students.map((student, index) => (
           <div key={index} className="relative flex-shrink-0 w-80 h-100 bg-white shadow-md rounded-xl cursor-pointer hover:shadow-xl transition" onMouseEnter={() => setHoveredCard(index)} onMouseLeave={() => setHoveredCard(null)}>

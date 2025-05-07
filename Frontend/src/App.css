@@ -1,11 +1,30 @@
-.motionDash{
-    animation: motionDash .5s linear;
-}
-@keyframes motionDash {
-    0%{
-        transform:translateY(10%);
+.textEnter {
+    animation: slideIn 0.6s ease forwards;
+  }
+  
+  .textExit {
+    animation: slideOut 0.6s ease forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
     }
-    100%{
-        transform: translateY(0%);
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-}
+  }
+  
+  @keyframes slideOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+  }
+  

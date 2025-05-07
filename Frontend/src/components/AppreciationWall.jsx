@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
 
 function AppreciationWall() {
   return (
@@ -14,9 +16,23 @@ function AppreciationWall() {
         </p>
       </div>
 
-      {/* Testimonial Card */}
-      <div className='w-full flex-1 flex justify-center items-center z-10'>
-        <div className='w-[300px] sm:w-[380px] lg:w-[480px] p-4 rounded-full lg:rounded-full bg-[#FFAE00] relative flex flex-col justify-center items-center overflow-hidden text-center'>
+      {/* Animated Testimonial Card */}
+      <div className='w-full flex flex-1 justify-center items-center z-10 overflow-hidden relative'>
+      <motion.div
+        className='w-[300px] sm:w-[380px] lg:w-[480px] p-4 rounded-full bg-[#FFAE00] flex flex-col justify-center items-center text-center'
+        initial={{ y: 200, opacity: 0, scale: 0 }}
+        animate={{
+          y: [200, 0, 0, -200],
+          opacity: [0, 1, 1, 0],
+          scale: [0, 1, 1, 0]
+        }}
+        transition={{
+          duration: 10,
+          times: [0, 0.3, 0.7, 1], // controls where the pauses happen
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
           <img
             className='w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full mt-4 object-cover'
             src="https://s3-alpha-sig.figma.com/img/7bc1/4501/4b1abf793d9813be4c68e7b1f8e05f78?Expires=1745798400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=m1iA48awvKTmvTMREJsHE6EUP-EebImewg5H-tFwKsiWuN6tr3UZPzbt8TUjbMwdi9pe2c3AWWFz0-em9zVLPGCBktW-iQgbJXHjQAQXifX-bhu9Xug4Ji-ctXxW35mW0IU3HFyGl56CRXkXTYtJVck-PIR6x6VurWXNdWmMIZj3leTsMLs44rtPUJZFIpmh3CwrzkbjDuGJw4-ghYOUYEKezv4xsaGaA3FIdppnpLs7YND-XDg4YtxVvD8rKHljXnPavfMLpOag2xkZ5ZoGYw9hBHkRW~QUtWKsPRQKaZAK-R8iL10OASOQq8dsgJiBhVBEqwJz65UXaWTmdv3r6g__"
@@ -27,7 +43,7 @@ function AppreciationWall() {
           </p>
           <h1 className='mt-2 font-semibold text-lg'>Harshita Gupta</h1>
           <p className='text-sm mb-4'>M.Tech | IITM Gwalior</p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
