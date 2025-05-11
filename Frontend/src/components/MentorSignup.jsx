@@ -8,15 +8,15 @@ export default function MentorSignup() {
       <div className="w-full py-10 px-4 md:px-15 text-lg flex flex-wrap items-center justify-between gap-2">
         <h1 className='text-3xl mr-4 font-bold'>BECOME A MENTOR-</h1>
         <span>1. Sign Up</span>
-        <span><img src="/bigArrow.png" alt="" /></span>
+        <span><i class="ri-arrow-right-line"></i></span>
         <span>2. Profile</span>
-        <span>➡️</span>
+        <span><i class="ri-arrow-right-line"></i></span>
         <span>3. Assessment</span>
-        <span>➡️</span>
+        <span><i class="ri-arrow-right-line"></i></span>
         <span>4. Interview</span>
-        <span>➡️</span>
+        <span><i class="ri-arrow-right-line"></i></span>
         <span>5. Verification</span>
-        <span>➡️</span>
+        <span><i class="ri-arrow-right-line"></i></span>
         <span className="text-black font-bold">Finish!</span>
       </div>
 
