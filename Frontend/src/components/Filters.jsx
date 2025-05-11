@@ -7,7 +7,7 @@ function Filters() {
   const [institution, setInstitution] = useState(false)
 
   return (
-    <div className='w-full bg-black/10 text-black'>
+    <div className='w-full bg-[#f3f3f3f7] text-black'>
 
       {/* Header Row */}
       <div className='w-full flex flex-col sm:flex-row items-start sm:items-center justify-between py-6 px-20 gap-4'>

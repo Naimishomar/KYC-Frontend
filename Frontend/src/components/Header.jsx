@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -41,7 +42,7 @@ function Header() {
   return (
     <>
       {/* Top Header */}
-      <div className='w-full bg-black/80 px-4 sm:px-20 py-4 flex items-center justify-between text-white'>
+      <div className='w-full bg-black/10 px-4 sm:px-20 py-4 flex items-center justify-between text-white'>
         <div className='flex items-center gap-4 sm:gap-6'>
           <div className='flex items-center'>
             <img className='w-8' src="https://www.knowyourcolleges.com/static/media/logo.84255c87a633c115a0b1.png" alt="logo" />
@@ -49,20 +50,22 @@ function Header() {
           </div>
 
           {/* Search Input */}
-          <div className='hidden md:flex border rounded-full px-2 items-center w-64 lg:w-72'>
-            <input type="text" placeholder={`Search ${text}`} className="px-2 py-1 bg-transparent text-white focus:outline-none w-full"/>
+          <div className='hidden md:flex border rounded-full px-2 items-center w-64 lg:w-72 bg-blsck/10'>
+            <input type="text" placeholder={`Search ${text}`} className="px-2 py-1 text-white focus:outline-none w-full"/>
             <i className="ri-search-line text-xl text-white p-1 rounded-full"></i>
           </div>
         </div>
 
         {/* Desktop Nav */}
         <div className='hidden lg:flex gap-5'>
-          <button className='border px-14 py-1 rounded-full bg-white/15 hover:bg-white/10'>Home</button>
-          <button className='border px-14 py-1 rounded-full bg-white/15 hover:bg-white/10'>Program</button>
-          <button className='border px-6 py-1 rounded-full bg-[#06FA6F] text-black flex gap-2 items-center'>
-            Become Mentor
-            <i className="ri-graduation-cap-line text-lg"></i>
-          </button>
+          <button className='border px-14 py-1 rounded-full bg-white/10 hover:bg-white/5 cursor-pointer'>Home</button>
+          <button className='border px-14 py-1 rounded-full bg-white/10 hover:bg-white/5 cursor-pointer'>Program</button>
+          <Link to='/mentor'>
+            <button className='border px-6 py-1 rounded-full bg-[#06FA6F] text-black flex gap-2 items-center cursor-pointer'>
+              Become Mentor
+              <i className="ri-graduation-cap-line text-lg"></i>
+            </button>
+          </Link>
         </div>
 
         {/* Hamburger Icon */}
@@ -77,31 +80,31 @@ function Header() {
       <hr className='border-[#06FA6F]' />
 
       {/* Submenu bar */}
-      <div className='hidden lg:flex items-center justify-between px-4 sm:px-20 py-2 w-full bg-black/80'>
+      <div className='hidden lg:flex items-center justify-between px-4 sm:px-20 py-2 w-full bg-blsck/10'>
         <div className='flex gap-4 py-2'>
-          <button className='text-white px-4 py-1 rounded-full bg-white/15 hover:bg-white/10 border'>College Events</button>
-          <button className='text-white px-4 py-1 rounded-full bg-white/15 hover:bg-white/10 border'>College Compare</button>
-          <button className='text-white px-4 py-1 rounded-full bg-white/15 hover:bg-white/10 border'>College Predictors</button>
+          <button className='text-white px-4 py-1 rounded-full bg-white/10 hover:bg-white/5 border cursor-pointer'>College Events</button>
+          <button className='text-white px-4 py-1 rounded-full bg-white/10 hover:bg-white/5 border cursor-pointer'>College Compare</button>
+          <button className='text-white px-4 py-1 rounded-full bg-white/10 hover:bg-white/5 border cursor-pointer'>College Predictors</button>
         </div>
         <div> 
-          <button className='text-black px-4 py-1 rounded-full flex items-center gap-2 bg-[#06FA6F]'>Login <i className="ri-user-2-fill"></i></button>
+          <button className='text-black px-4 py-1 rounded-full flex items-center gap-2 bg-[#06FA6F] cursor-pointer hover:bg-green-500'>Login <i className="ri-user-2-fill"></i></button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden bg-black/90 text-white px-6 py-4 transition-all duration-300 ${menuOpen ? 'block' : 'hidden'}`}>
+      <div className={`lg:hidden bg-black/10 text-white px-6 py-4 transition-all duration-300 ${menuOpen ? 'block' : 'hidden'}`}>
         <div className='flex flex-col gap-4'>
-          <button className='border px-4 py-2 rounded-full bg-white/15 hover:bg-white/10'>Home</button>
-          <button className='border px-4 py-2 rounded-full bg-white/15 hover:bg-white/10'>Program</button>
-          <button className='border px-4 py-2 rounded-full bg-[#06FA6F] text-black flex gap-2 items-center'>Become Mentor <i className="ri-graduation-cap-line"></i></button>
+          <button className='border px-4 py-2 rounded-full bg-white/15 hover:bg-white/10 cursor-pointer'>Home</button>
+          <button className='border px-4 py-2 rounded-full bg-white/15 hover:bg-white/10 cursor-pointer'>Program</button>
+          <button className='border px-4 py-2 rounded-full bg-[#06FA6F] text-black flex gap-2 items-center cursor-pointer'>Become Mentor <i className="ri-graduation-cap-line"></i></button>
 
           <hr className='border-white my-2' />
 
-          <button className='border px-4 py-2 rounded-full bg-white/15 hover:bg-white/10'>College Events</button>
-          <button className='border px-4 py-2 rounded-full bg-white/15 hover:bg-white/10'>College Compare</button>
-          <button className='border px-4 py-2 rounded-full bg-white/15 hover:bg-white/10'>College Predictors</button>
+          <button className='border px-4 py-2 rounded-full bg-white/15 hover:bg-white/10 cursor-pointer'>College Events</button>
+          <button className='border px-4 py-2 rounded-full bg-white/15 hover:bg-white/10 cursor-pointer'>College Compare</button>
+          <button className='border px-4 py-2 rounded-full bg-white/15 hover:bg-white/10 cursor-pointer'>College Predictors</button>
 
-          <button className='text-black bg-[#06FA6F] px-4 py-2 rounded-full flex items-center justify-center gap-2 mt-2'>
+          <button className='text-black bg-[#06FA6F] px-4 py-2 rounded-full flex items-center justify-center gap-2 mt-2 cursor-pointer'>
             Login <i className="ri-user-2-fill"></i>
           </button>
         </div>
