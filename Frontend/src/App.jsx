@@ -6,6 +6,7 @@ import './App.css'
 import {Toaster} from 'sonner'
 import Mentor from './components/Mentor.jsx';
 import MentorSignup from './components/MentorSignup.jsx';
+import MentorsFirstPage from './components/mentors/MentorsFirstPage.jsx';
 
 const router = createBrowserRouter( 
   createRoutesFromElements(
@@ -13,6 +14,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<Dashboard/>} />
       <Route path='mentor' element={<Mentor/>} />
       <Route path='mentor/signup' element={<MentorSignup/>} />
+      <Route path='mentor/dashboard' element={<MentorsFirstPage/>}/>
     </Route>
   )
 );

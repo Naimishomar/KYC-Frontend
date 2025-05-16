@@ -3,7 +3,6 @@ import React from 'react';
 export default function MentorSignup() {
   return (
     <div className="min-h-screen bg-[#DEFFEC] text-black relative">
-      <img src="/mentorGirl.png" alt="logo" className='absolute bottom-0 right-0 z-10 rounded-br-4xl'/>
       {/* Step Progress */}
       <div className="w-full py-10 px-4 md:px-15 text-lg flex flex-wrap items-center justify-between gap-2">
         <h1 className='text-3xl mr-4 font-bold'>BECOME A MENTOR-</h1>
@@ -21,14 +20,15 @@ export default function MentorSignup() {
       </div>
 
       {/* Main Form and Perks */}
-      <div className="flex flex-col lg:flex-row gap-6 justify-between">
+      <div className="flex flex-col lg:flex-row gap-6 justify-between relative">
+        <img src="/mentorFrame.png" alt="" className='absolute inset-0 w-full h-full object-cover z-0 hidden sm:block' />
         {/* Form */}
-        <div className="bg-white lg:rounded-tr-4xl p-5 lg:px-15 shadow-md w-full lg:w-1/2 lg:border-t-5 lg:border-r-5 border-green-300">
+        <div className="bg-white lg:rounded-tr-4xl p-5 lg:px-15 shadow-md w-full lg:w-1/2 lg:border-t-5 lg:border-r-5 border-green-300 z-30">
           <h2 className="text-3xl font-bold mb-5">Sign Up -</h2>
           <div className="flex flex-col md:flex-row gap-4 mb-2">
             <div>
               <label htmlFor="" className='font-bold'>First Name*</label>
-              <input className="w-full px-4 py-2 border rounded" placeholder="First Name *" />
+              <input type='text' className="w-full px-4 py-2 border rounded" placeholder="First Name *" />
             </div>
             <div>
               <label htmlFor="" className='font-bold'>Last Name*</label>
@@ -58,7 +58,6 @@ export default function MentorSignup() {
 
         {/* Perks */}
         <div className="bg-[#A9FFD4] rounded-xl w-full lg:w-1/3 lg:h-1/2 relative overflow-hidden lg:m-20">
-          <img src="/mentorFrame.png" alt="" />
         </div>
       </div>
     </div>
