@@ -8,10 +8,11 @@ import { AnimatePresence } from 'framer-motion';
 function Layout() {
   const location = useLocation();
   const hideFooter = location.pathname.startsWith('/mentor');
+  const hideHeaderFooter = location.pathname.startsWith('/mentor/home');
 
   return (
     <div className='bg-gray-900'>
-      <Header />
+      {!hideHeaderFooter && <Header />}
       <AnimatePresence mode="wait">
         <PageWrapper key={location.pathname}>
           <Outlet />

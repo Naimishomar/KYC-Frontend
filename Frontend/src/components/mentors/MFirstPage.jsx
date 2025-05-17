@@ -8,6 +8,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog"
+import { useNavigate, Link } from "react-router-dom";
+import MDialog from "./MDialog";
 
 
 
@@ -104,61 +106,62 @@ const students = [
   // Add more students...
 ];
 
-function MentorsFirstPage() {
+function MFirstPage() {
     const containerRef = useRef(null);
-      const [hoveredCard, setHoveredCard] = useState(null);
-      const [open, setOpen] = useState(false);
-      const [showSelect, setShowSelect] = useState(false);
-      const intervalRef = useRef(null);
-      const [examExpertise, setExamExpertise] = useState({
-            NEET: true,
-            'JEE Mains': false,
-            'JEE Advanced': false,
-            BITSAT: false,
-            CUET: false,
-        });
+    const navigate = useNavigate();
+    const [hoveredCard, setHoveredCard] = useState(null);
+    const [open, setOpen] = useState(false);
+    const intervalRef = useRef(null);
+    const [examExpertise, setExamExpertise] = useState({
+      NEET: true,
+      'JEE Mains': false,
+      'JEE Advanced': false,
+      BITSAT: false,
+      CUET: false,
+    });
+    const [courses, setCourses] = useState({
+        'B. Tech': true,
+        'M.B.B.S': false,
+        'B.E.': false,
+    });
+    const [button, setButton] = useState(<span className='font-bold text-2xl'>Get Personalized Mentor<i class="ri-arrow-right-line ml-2 font-bold"></i></span>)
 
-        const [courses, setCourses] = useState({
-            'B. Tech': true,
-            'M.B.B.S': false,
-            'B.E.': false,
-        });
+    const toggleExam = (key) => {
+        setExamExpertise((prev) => ({
+        ...prev,
+        [key]: !prev[key],
+        }));
+    };
 
-        const toggleExam = (key) => {
-            setExamExpertise((prev) => ({
-            ...prev,
-            [key]: !prev[key],
-            }));
-        };
+    const toggleCourse = (key) => {
+        setCourses((prev) => ({
+        ...prev,
+        [key]: !prev[key],
+        }));
+    };
+    
+    useEffect(() => {
+      startAutoScroll();
+      return () => clearInterval(intervalRef.current);
+    }, []);
+    
+    const startAutoScroll = () => {
+      intervalRef.current = setInterval(() => {
+        const container = containerRef.current
+        if (!container) return;
+        if (container.scrollLeft + container.offsetWidth >= container.scrollWidth) {
+          container.scrollTo({ left: 0, behavior: "smooth" });
+        } 
+        else {
+          container.scrollBy({ left: 300, behavior: "smooth" });
+        }
+      }, 3000);
+    };
+    
+    const stopAutoScroll = () => {
+      clearInterval(intervalRef.current);
+    };
 
-        const toggleCourse = (key) => {
-            setCourses((prev) => ({
-            ...prev,
-            [key]: !prev[key],
-            }));
-        };
-    
-      useEffect(() => {
-        startAutoScroll();
-        return () => clearInterval(intervalRef.current);
-      }, []);
-    
-      const startAutoScroll = () => {
-        intervalRef.current = setInterval(() => {
-          const container = containerRef.current
-          if (!container) return;
-          if (container.scrollLeft + container.offsetWidth >= container.scrollWidth) {
-            container.scrollTo({ left: 0, behavior: "smooth" });
-          } 
-          else {
-            container.scrollBy({ left: 300, behavior: "smooth" });
-          }
-        }, 3000);
-      };
-    
-      const stopAutoScroll = () => {
-        clearInterval(intervalRef.current);
-      };
   return (
     <div className='w-full h-fit bg-white/90 py-5 relative'>
         <div className='px-15 py-5 flex justify-between items-center'>
@@ -250,59 +253,12 @@ function MentorsFirstPage() {
         </div>
 
         <div className="px-15 flex justify-between gap-6">
-            <button className="bg-white px-3 py-2 w-[30%] rounded-sm cursor-pointer"><span className="font-bold">View All</span><i class="ri-arrow-right-line"></i></button>
-            <Dialog>
-              <DialogTrigger className="bg-[#5BE38D] px-3 py-2 flex-1 rounded-sm cursor-pointer"><span className="font-bold">Get Personalized Mentor</span><i class="ri-arrow-right-line"></i></DialogTrigger>
-              <DialogContent className="bg-[#E9E9E9] text-black border-none !max-w-none w-[90vw] !max-h-none h-[90vh] p-0">
-                <DialogHeader>
-                  <DialogTitle className='font-bold text-[32px] px-10 pt-5'>Get a Personalized Mentor!</DialogTitle>
-                  <hr className="border-2 border-[#C0C0C0] w-full"/>
-                  <DialogDescription>
-                    <div className="px-10 py-5 text-black">
-                      <div>
-                        <label htmlFor="" className="font-semibold text-xl">Search Mentor</label>
-                        <div className="bg-white px-3 py-1 flex mt-1 rounded-sm">
-                          <i class="ri-search-line text-lg text-[#6C6C6C]"></i>
-                          <input type="text" placeholder="Mentor Name / College Name" className="border-none outline-0 w-full mx-2 placeholder:font-semibold placeholder:text-[#6C6C6C]" />
-                        </div>
-                      </div>
-
-                      <div className="mt-3">
-                        <label htmlFor="" className="font-semibold text-xl">Location</label>
-                        <div className="bg-white px-3 py-1 flex mt-1 rounded-sm">
-                          <i class="ri-search-line text-lg text-[#6C6C6C]"></i>
-                          <input type="text" placeholder="College Location" className="border-none outline-0 w-full mx-2 placeholder:font-semibold placeholder:text-[#6C6C6C]" />
-                        </div>
-                      </div>
-
-                      <div className="mt-3">
-                          <MultiSelect
-                          data={['Choose Filter 1','Choose Filter 2']}
-                          defaultValue={['Choose Filter 1','Choose Filter 2']}
-                          styles={{
-                            input: {
-                              backgroundColor: 'transparent',
-                              border: 'none',
-                              display: 'flex',
-                              justifyContent: 'start',
-                              alignItems: 'center',
-                            }
-                          }}
-                          />
-                      </div>
-
-                      <div className="mt-3 w-full h-fit p-5 bg-[#5BE38D] rounded-2xl">
-                          <h1 className="font-bold text-xl">COURSES</h1>
-                      </div>
-
-                    </div>
-                  </DialogDescription>
-                </DialogHeader>
-              </DialogContent>
-            </Dialog>
+            <Link to='/mentor/home' className="bg-white px-3 py-2 w-[50%] rounded-sm cursor-pointer flex justify-center items-center"><button><span className="font-bold" >View All</span><i class="ri-arrow-right-line"></i></button></Link>
+            
+            <MDialog button={button}/>
         </div>
     </div>
   )
 }
 
-export default MentorsFirstPage
+export default MFirstPage

@@ -42,9 +42,11 @@ function Mentor() {
   return (
     <div className='bg-[#DEFFEC] w-full h-screen lg:px-[91px]'>
       {change ? (
-        <div className='w-full h-full text-2xl sm:text-3xl font-bold text-center flex justify-center items-center'>
-          <img src="/star.png" alt="logo" className="w-12" />
-          <h1>Turn your experience into impact—guide juniors and <br /> earn while doing it.</h1>
+        <div className='w-full h-full text-2xl sm:text-3xl font-bold text-center flex justify-center items-center -mt-30'>
+          <div className='pt-30 flex'>
+            <img src="/star.png" alt="logo" className="w-12" />
+            <h1>Turn your experience into impact—guide juniors and <br /> earn while doing it.</h1>
+          </div>
         </div>
       ) : (
         <div className='px-2 pt-[50px]'>

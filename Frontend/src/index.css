@@ -2,11 +2,16 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-
+body::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
 body{
     width: 100%;
     overflow-x: hidden;
     background-color: #F3F3F3;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .scroll-hide::-webkit-scrollbar {

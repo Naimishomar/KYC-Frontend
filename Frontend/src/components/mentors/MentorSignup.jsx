@@ -5,18 +5,20 @@ export default function MentorSignup() {
     <div className="min-h-screen bg-[#DEFFEC] text-black relative">
       {/* Step Progress */}
       <div className="w-full py-10 px-4 md:px-15 text-lg flex flex-wrap items-center justify-between gap-2">
-        <h1 className='text-3xl mr-4 font-bold'>BECOME A MENTOR-</h1>
-        <span>1. Sign Up</span>
-        <span><i class="ri-arrow-right-line"></i></span>
-        <span>2. Profile</span>
-        <span><i class="ri-arrow-right-line"></i></span>
-        <span>3. Assessment</span>
-        <span><i class="ri-arrow-right-line"></i></span>
-        <span>4. Interview</span>
-        <span><i class="ri-arrow-right-line"></i></span>
-        <span>5. Verification</span>
-        <span><i class="ri-arrow-right-line"></i></span>
-        <span className="text-black font-bold">Finish!</span>
+        <h1 className='text-3xl font-bold'>BECOME A MENTOR-</h1>
+        <div className="flex items-center space-x-2 mr-6">
+          <span>1. Sign Up</span>
+          <img src="/mentorArrow.png" alt="arrow" className="w-10 h-auto" />
+          <span>2. Profile</span>
+          <img src="/mentorArrow.png" alt="arrow" className="w-10 h-auto" />
+          <span>3. Assessment</span>
+          <img src="/mentorArrow.png" alt="arrow" className="w-10 h-auto" />
+          <span>4. Interview</span>
+          <img src="/mentorArrow.png" alt="arrow" className="w-10 h-auto" />
+          <span>5. Verification</span>
+          <img src="/mentorArrow.png" alt="arrow" className="w-10 h-auto" />
+          <span className="text-black font-bold">Finish!</span>
+        </div>
       </div>
 
       {/* Main Form and Perks */}

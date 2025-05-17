@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,6 +8,7 @@ function Header() {
   const [wordIndex, setWordIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const currentWord = words[wordIndex];
@@ -40,12 +41,12 @@ function Header() {
   }, [charIndex, isTyping, wordIndex, words]);
 
   return (
-    <>
+    <div className='relative top-0 left-0 z-50 w-full'>
       {/* Top Header */}
       <div className='w-full bg-[#2E2E2E] px-4 sm:px-25 py-3 flex items-center justify-between text-white'>
         <div className='flex items-center gap-4 sm:gap-6'>
-          <div className='flex items-center'>
-            <img className='w-5' src="https://www.knowyourcolleges.com/static/media/logo.84255c87a633c115a0b1.png" alt="logo" />
+          <div className='flex items-center cursor-pointer' onClick={()=>navigate("/")}>
+            <img className='w-5' src="https://www.knowyourcolleges.com/static/media/logo.84255c87a633c115a0b1.png" alt="logo"/>
             <span className='text-[1.35rem] font-bold ml-1'>KYC</span>
           </div>
 
@@ -106,7 +107,7 @@ function Header() {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
