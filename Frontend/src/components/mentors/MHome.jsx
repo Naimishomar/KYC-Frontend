@@ -10,6 +10,7 @@ import { IoClose } from 'react-icons/io5';
 
 function MHome() {
   const [button, setButton] = useState(<span className='font-bold text-2xl'>Get Personalized Mentor<i class="ri-arrow-right-line ml-2 font-bold"></i></span>)
+  const [personalizedFilters, setPersonalizedFilters] = useState(<span className='flex items-center justify-between font-semibold text-xl'>Personalised Filters<FaFilter className="text-xl" /></span>)
   const [filters, setFilters] = useState([
     'Delhi',
     'Amity Universite',
@@ -67,9 +68,10 @@ function MHome() {
 
     <div className="flex items-center gap-4 bg-white px-20 py-3 rounded-md border">
       {/* Filter Button */}
-      <button className="flex items-center gap-2 px-8 py-1.5 border-2 border-black rounded-lg mr-3"><span className='font-semibold text-xl'>Personalised Filters</span> <FaFilter className="text-xl" /></button>
 
-      <div className="h-10 border-2 border-black"></div>
+      <div>
+        <MDialog button={personalizedFilters}/>
+      </div>
 
       {/* Active Filters */}
       <div className="flex flex-wrap gap-5 ml-3">
