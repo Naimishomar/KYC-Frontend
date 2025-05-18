@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function MentorSignup() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-[#DEFFEC] text-black relative">
       {/* Step Progress */}
@@ -49,7 +51,7 @@ export default function MentorSignup() {
             <label htmlFor="" className='font-bold'>Confirm Password*</label>
             <input className="w-full px-4 py-2 border rounded mb-4" placeholder="Confirm Password *" type="password" />
           </div>
-          <button className="w-full bg-[#1dfe91] py-2 rounded-full font-semibold cursor-pointer hover:bg-green-400">Sign Up</button>
+          <button className="w-full bg-[#1dfe91] py-2 rounded-full font-semibold cursor-pointer hover:bg-green-400" onClick={()=> navigate('/mentor/dashboard')}>Sign Up</button>
           <p className="text-sm mt-2">
             Already Registered? <a href="#" className="text-blue-600 font-semibold">Login Now</a>
           </p>
