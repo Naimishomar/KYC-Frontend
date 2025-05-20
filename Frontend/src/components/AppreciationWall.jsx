@@ -1,52 +1,136 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
+const AppretiationWall = () => {
+	const appreciations = [
+		{
+			name: "Aarav Sharma",
+			profile: "Undergraduate Student at Stanford University",
+			college: "Stanford University",
+			degree: "B.Sc.",
+			appreciation:
+				"I was overwhelmed with the college application process and unsure of where to start and this is when I stumbled upon Know Your Colleges! They connected me to a mentor who gave me personalised support, helped me identify my strengths and craft a compelling narrative for my applications. Thanks to Know Your Colleges, I applied to all my dream universities with personalised guidance from students at that university and put my best foot forward!",
+		},
+		{
+			name: "Meera Patel",
+			profile: "Graduate Student at MIT",
+			college: "Massachusetts Institute of Technology",
+			degree: "M.S.",
+			appreciation:
+				"Know Your Colleges made my application journey so much easier. The mentors were incredibly supportive and provided me with insights that I wouldn't have found anywhere else. Their guidance helped me secure admission to my dream program. I can't thank them enough!",
+		},
+		{
+			name: "Rohan Gupta",
+			profile: "Undergraduate Student at UC Berkeley",
+			college: "University of California, Berkeley",
+			degree: "B.A.",
+			appreciation:
+				"The mentorship I received from Know Your Colleges was invaluable. They helped me navigate the complexities of the application process and gave me the confidence to showcase my unique story. I'm now studying at my dream university, and I owe it all to their amazing team!",
+		},
+		{
+			name: "Ananya Singh",
+			profile: "Undergraduate Student at University of Oxford",
+			college: "University of Oxford",
+			degree: "B.A.",
+			appreciation:
+				"Thanks to Know Your Colleges, I was able to connect with mentors who had firsthand experience with the universities I was applying to. Their advice and encouragement were instrumental in helping me achieve my goals. I highly recommend their services!",
+		},
+		{
+			name: "Kabir Malhotra",
+			profile: "Graduate Student at Harvard University",
+			college: "Harvard University",
+			degree: "M.B.A.",
+			appreciation:
+				"Know Your Colleges provided me with the tools and support I needed to succeed. Their mentors were knowledgeable, approachable, and genuinely cared about my success. I couldn't have done it without them!",
+		},
+	];
 
-function AppreciationWall() {
-  return (
-    <div className='w-full min-h-screen bg-[#FFE7B2] flex flex-col lg:flex-row items-center p-4 gap-6 relative overflow-hidden'>
+	const [index, setIndex] = useState(0);
 
-      {/* Background Image */}
-      <img src="/backgroung.png" alt="" className='absolute top-0 left-0 w-full h-auto object-cover z-0' />
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setIndex((prev) => (prev + 1) % appreciations.length);
+		}, 3000);
+		return () => clearInterval(interval);
+	}, []);
 
-      {/* Left Title */}
-      <div className='w-full lg:w-[40%] z-10 text-center'>
-        <p className='text-5xl sm:text-5xl lg:text-6xl font-bold leading-tight'>
-          Appreciation <br />Wall <i className="ri-heart-line text-[#06FA6F] font-medium"></i>
-        </p>
-      </div>
+	const appreciation = appreciations[index];
 
-      {/* Animated Testimonial Card */}
-      <div className='w-full flex flex-1 justify-center items-center z-10 overflow-hidden relative'>
-      <motion.div
-        className='w-[300px] sm:w-[380px] lg:w-[480px] p-4 rounded-full bg-[#FFAE00] flex flex-col justify-center items-center text-center'
-        initial={{ y: 200, opacity: 0, scale: 0 }}
-        animate={{
-          y: [200, 0, 0, -200],
-          opacity: [0, 1, 1, 0],
-          scale: [0, 1, 1, 0]
-        }}
-        transition={{
-          duration: 10,
-          times: [0, 0.3, 0.7, 1], // controls where the pauses happen
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      >
-          <img
-            className='w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full mt-4 object-cover'
-            src="https://s3-alpha-sig.figma.com/img/7bc1/4501/4b1abf793d9813be4c68e7b1f8e05f78?Expires=1745798400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=m1iA48awvKTmvTMREJsHE6EUP-EebImewg5H-tFwKsiWuN6tr3UZPzbt8TUjbMwdi9pe2c3AWWFz0-em9zVLPGCBktW-iQgbJXHjQAQXifX-bhu9Xug4Ji-ctXxW35mW0IU3HFyGl56CRXkXTYtJVck-PIR6x6VurWXNdWmMIZj3leTsMLs44rtPUJZFIpmh3CwrzkbjDuGJw4-ghYOUYEKezv4xsaGaA3FIdppnpLs7YND-XDg4YtxVvD8rKHljXnPavfMLpOag2xkZ5ZoGYw9hBHkRW~QUtWKsPRQKaZAK-R8iL10OASOQq8dsgJiBhVBEqwJz65UXaWTmdv3r6g__"
-            alt="testimonial"
-          />
-          <p className='text-sm sm:text-base px-4 py-4 font-medium'>
-            I was overwhelmed with the college application process and unsure of where to start — that’s when I stumbled upon Know Your Colleges! They connected me to a mentor who gave me personalized support, helped me identify my strengths, and craft a compelling narrative. Thanks to them, I applied to all my dream universities with guidance from students already there.
-          </p>
-          <h1 className='mt-2 font-semibold text-lg'>Harshita Gupta</h1>
-          <p className='text-sm mb-4'>M.Tech | IITM Gwalior</p>
-        </motion.div>
-      </div>
-    </div>
-  );
-}
+	return (
+		<div
+			style={{
+				backgroundImage: `url('/a-texture.png')`,
+				backgroundSize: "cover",
+				backgroundPosition: "center",
+				backgroundColor: "#FFE7B2",
+			}}
+			className=" md:px-30 w-full h-screen flex flex-col md:flex-row items-center justify-center"
+		>
+			<div className="flex flex-col gap-4 p-6 md:p-0 items-center">
+				<h1 className="text-2xl md:text-5xl font-bold">
+					Appreciation
+					<br />
+					<span className="flex gap-2 leading-tight items-center">
+						Wall
+						<img src="/heart.png" className="w-13" />
+					</span>
+				</h1>
+			</div>
+			<div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+				{/* Animated text in center circle */}
+				<div className="relative w-full h-full overflow-hidden flex items-center justify-center">
+					<AnimatePresence mode="wait">
+						<motion.div
+							key={index}
+							initial={{ y: 400, opacity: 0, scale: 0.8 }}
+							animate={{ y: 0, opacity: 1, scale: 1 }}
+							exit={{ y: -400, opacity: 0, scale: 0.8 }}
+							transition={{ duration: 0.8, ease: "easeInOut" }}
+							className="absolute flex flex-col items-center"
+						>
+							{/* Bubbles image */}
+							<img
+								src="/bubbles.png"
+								alt="bubbles"
+								className="w-full h-full object-contain"
+							/>
 
-export default AppreciationWall;
+							{/* Big appreciation circle with text */}
+							<div
+								className={`absolute top-1/2  left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFAE00] w-130 h-130 md:w-120 md:h-120 `}
+							>
+								<div className="relative w-full h-full gap-8 flex flex-col items-center justify-center p-6 text-center">
+									<img
+										className="w-20 h-20 rounded-full"
+										src="https://images.pexels.com/photos/31910663/pexels-photo-31910663/free-photo-of-person-fishing-at-tranquil-lake-under-clear-sky.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+									/>
+									<p className="text-sm font-semibold px-14">
+										{appreciation.appreciation}
+									</p>
+									<div className="text-secondary-text">
+										<h3 className="text-sm ">
+											{appreciation.name}
+										</h3>
+										<div className="text-xs">
+											{appreciation.degree}{" "}
+											<span className="font-bold">|</span>{" "}
+											{appreciation.college}
+										</div>
+									</div>
+									<span className="absolute left-8 top-50 -z-10 text-4xl font-extrabold text-white">
+										<i className="fa-solid fa-quote-left" />
+									</span>
+									<span className="absolute right-8 bottom-50 -z-10 text-4xl font-extrabold text-white">
+										<i className="fa-solid fa-quote-right" />
+									</span>
+								</div>
+							</div>
+						</motion.div>
+					</AnimatePresence>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+export default AppretiationWall;

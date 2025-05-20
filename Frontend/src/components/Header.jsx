@@ -9,6 +9,7 @@ function Header() {
   const [charIndex, setCharIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
   const navigate = useNavigate();
+  const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
     const currentWord = words[wordIndex];
@@ -41,20 +42,37 @@ function Header() {
   }, [charIndex, isTyping, wordIndex, words]);
 
   return (
-    <div className='relative top-0 left-0 z-50 w-full'>
+    <header className='relative top-0 left-0 w-full z-[10000]'>
+
       {/* Top Header */}
       <div className='w-full bg-[#2E2E2E] px-4 sm:px-25 py-3 flex items-center justify-between text-white'>
         <div className='flex items-center gap-4 sm:gap-6'>
-          <div className='flex items-center cursor-pointer' onClick={()=>navigate("/")}>
-            <img className='w-5' src="https://www.knowyourcolleges.com/static/media/logo.84255c87a633c115a0b1.png" alt="logo"/>
+          <div className='flex items-center cursor-pointer' onClick={() => navigate("/")}>
+            <img className='w-5' src="https://www.knowyourcolleges.com/static/media/logo.84255c87a633c115a0b1.png" alt="logo" />
             <span className='text-[1.35rem] font-bold ml-1'>KYC</span>
           </div>
 
-          {/* Search Input */}
+          {/* Desktop Search */}
           <div className='hidden md:flex border border-gray-400 rounded-full px-2 items-center w-64 lg:w-72 bg-[#3F3F3F]'>
-            <input type="text" placeholder={`Search ${text}`} className="px-2 py-1 text-white focus:outline-none w-full"/>
+            <input type="text" placeholder={`Search ${text}`} className="px-2 py-1 text-white focus:outline-none w-full bg-transparent" />
             <i className="ri-search-line text-xl text-white p-1 rounded-full"></i>
           </div>
+        </div>
+
+        {/* Mobile Search Toggle */}
+        <div className="md:hidden flex items-center justify-center gap-2 p-2 rounded-full">
+          {showSearch && (
+            <div className="border border-gray-400 rounded-full px-3 py-1 flex items-center w-40 bg-[#3F3F3F]">
+              <input
+                type="text"
+                placeholder={`Search ${text}`}
+                className="bg-transparent text-white outline-none w-full text-sm"
+              />
+            </div>
+          )}
+          <button onClick={() => setShowSearch(prev => !prev)} className='w-12 h-12 rounded-full bg-[#3F3F3F]'>
+            <i className="ri-search-line text-xl text-white" />
+          </button>
         </div>
 
         {/* Desktop Nav */}
@@ -62,52 +80,53 @@ function Header() {
           <button className='border border-gray-400 px-10 rounded-full bg-[#3F3F3F] hover:bg-white/5 cursor-pointer'>Home</button>
           <button className='border border-gray-400 px-14 py-1 rounded-full bg-[#3F3F3F] hover:bg-white/5 cursor-pointer'>Program</button>
           <Link to='/mentor'>
-          <button className='border px-6 py-1 rounded-full bg-[#06FA6F] text-black flex gap-2 items-center cursor-pointer'>Become Mentor<i className="ri-graduation-cap-line text-lg"></i></button>
+            <button className='border px-6 py-1 rounded-full bg-[#06FA6F] text-black flex gap-2 items-center cursor-pointer'>Become Mentor<i className="ri-graduation-cap-line text-lg"></i></button>
           </Link>
         </div>
 
         {/* Hamburger Icon */}
-        <button
-          className='lg:hidden text-2xl'
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
+        <button className='lg:hidden text-2xl' onClick={() => setMenuOpen(true)}>
           <i className="ri-menu-line"></i>
         </button>
       </div>
 
-      <hr className='border-gray-400' />
+      {/* Mobile Slide-in Drawer */}
+      <div className={`fixed top-0 right-0 h-full w-[70vw] bg-[#2E2E2E] text-white z-[100] transition-transform duration-300 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className='p-4 border-b border-gray-500 flex justify-end'>
+          <button onClick={() => setMenuOpen(false)}>
+            <i className="ri-close-line text-2xl"></i>
+          </button>
+        </div>
+        <div className='p-4 flex flex-col gap-4 font-medium'>
+          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F]'>Home</button>
+          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F]'>Program</button>
+          <Link to='/mentor'>
+            <button className='border px-4 py-2 rounded-full bg-[#06FA6F] text-black flex gap-2 items-center'>Become Mentor<i className="ri-graduation-cap-line"></i></button>
+          </Link>
+          <hr className='border-gray-400 my-2' />
+          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F]'>College Events</button>
+          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F]'>College Compare</button>
+          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F]'>College Predictors</button>
+          <button className='text-black bg-[#06FA6F] px-4 py-2 rounded-full flex items-center justify-center gap-2 mt-2'>
+            <span className='text-sm font-semibold'>Login</span>
+            <i className="ri-account-circle-2-line text-xl"></i>
+          </button>
+        </div>
+      </div>
 
-      {/* Submenu bar */}
+      {/* Submenu for Desktop */}
       <div className='hidden lg:flex items-center justify-between px-4 sm:px-25 py-1 w-full bg-[#2E2E2E]'>
         <div className='flex gap-4 py-2'>
           <button className='text-white px-4 py-1 rounded-full bg-[#3F3F3F] hover:bg-white/5 border border-gray-400 cursor-pointer'>College Events</button>
           <button className='text-white px-4 py-1 rounded-full bg-[#3F3F3F] hover:bg-white/5 border border-gray-400 cursor-pointer'>College Compare</button>
           <button className='text-white px-4 py-1 rounded-full bg-[#3F3F3F] hover:bg-white/5 border border-gray-400 cursor-pointer'>College Predictors</button>
         </div>
-        <div> 
-          <button className='text-black px-4 py-1 rounded-full flex items-center gap-2 bg-[#06FA6F] cursor-pointer hover:bg-green-500'>Login <i className="ri-user-2-fill"></i></button>
-        </div>
+        <button className='text-black px-5 py-0.5 rounded-full flex items-center justify-center gap-1 bg-[#06FA6F] cursor-pointer hover:bg-green-500 text-sm font-bold'>
+          <span className='text-sm font-semibold'>Login</span>
+          <i className="ri-account-circle-2-line text-2xl"></i>
+        </button>
       </div>
-
-      {/* Mobile Menu */}
-      <div className={`lg:hidden bg-black/10 text-white px-6 py-4 transition-all duration-300 ${menuOpen ? 'block' : 'hidden'}`}>
-        <div className='flex flex-col gap-4'>
-          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F] hover:bg-white/10 cursor-pointer'>Home</button>
-          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F] hover:bg-white/10 cursor-pointer'>Program</button>
-          <button className='border px-4 py-2 rounded-full bg-[#06FA6F] text-black flex gap-2 items-center cursor-pointer'>Become Mentor <i className="ri-graduation-cap-line"></i></button>
-
-          <hr className='border-white my-2' />
-
-          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F] hover:bg-white/10 cursor-pointer'>College Events</button>
-          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F] hover:bg-white/10 cursor-pointer'>College Compare</button>
-          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F] hover:bg-white/10 cursor-pointer'>College Predictors</button>
-
-          <button className='text-black bg-[#06FA6F] px-4 py-2 rounded-full flex items-center justify-center gap-2 mt-2 cursor-pointer'>
-            Login <i className="ri-user-2-fill"></i>
-          </button>
-        </div>
-      </div>
-    </div>
+    </header>
   );
 }
 

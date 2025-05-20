@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from "framer-motion";
+
 
 function Footer() {
   return (
-    <div className="w-full min-h-screen bg-[#01200C] md:px-30 md:py-20 relative overflow-hidden">
+    <footer className="w-full min-h-screen bg-[#01200C] md:px-30 md:py-20 relative overflow-hidden">
       <div className="flex flex-col md:flex-row justify-between">
         {/* Contact Section */}
         <div className="">
@@ -41,10 +43,21 @@ function Footer() {
       </div>
 
       {/* Optional Footer Label */}
-      <h1 className='text-6xl whitespace-nowrap sm:text-5xl md:text-5xl lg:text-8xl text-green-900 font-bold absolute left-0 bottom-10 w-full text-center scale-y-250 scale-x-120'>
-        KNOW YOUR COLLEGES
-      </h1>
-    </div>
+			<motion.div
+				initial={{ y: 100, opacity: 0 }}
+				whileInView={{ y: 10, opacity: 0.1 }}
+				transition={{ duration: 1, ease: "easeOut" }}
+				viewport={{ once: true }}
+				className="absolute bottom-0 left-0 w-full text-center tracking-[-0.3rem]  md:tracking-[-0.5rem] text-[10vw] md:text-[9.5vw] whitespace-nowrap font-extrabold text-[#d8d8d8] select-none"
+				style={{
+					fontSize: "vw",
+					lineHeight: "1.5",
+					scaleY: 2,
+				}}
+			>
+				KNOW YOUR COLLEGES
+			</motion.div>
+    </footer>
   );
 }
 

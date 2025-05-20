@@ -1,26 +1,25 @@
-import React from 'react'
-import AutoScrollCards from './AutoScrollCards';
+// import AutoScrollCards from './FindMentors';
 import AppreciationWall from './AppreciationWall';
 import VideoPage from './VideoPage';
-import FirstPage from './FirstPage';
 import Filters from './Filters';
-import NextFilter from './NextFilter';
 import SocialMedia from './SocialMedia';
 import LatestUpdates from './LatestUpdates';
 import ImportantDetails from './ImportantDetails';
-import AutoScrollCards2 from './AutoScrollCards2';
+import Hero from './Hero';
+import FindColleges from './FindColleges';
+import FindMentors from './FindMentors';
 
 function Dashboard() {
   return (
     <>
       <div>
-        <FirstPage/>
+        <Hero/>
       </div>
       <div>
         <Filters/>
       </div>
       <div>
-        <AutoScrollCards/>
+        <FindMentors/>
       </div>
       <div>
         <AppreciationWall/>
@@ -29,10 +28,7 @@ function Dashboard() {
         <VideoPage/>
       </div>
       <div>
-        <NextFilter/>
-      </div>
-      <div>
-        <AutoScrollCards2/>
+        <FindColleges/>
       </div>
       <div>
         <LatestUpdates/>

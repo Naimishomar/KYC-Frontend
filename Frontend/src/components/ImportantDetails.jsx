@@ -12,20 +12,20 @@ const details = [
 
 const ImportantDetails = () => {
   return (
-    <div className="bg-blue-400 px-8 pb-10 text-black">
-      <h2 className="text-2xl font-semibold mb-4 border-b-4 inline-block border-black">IMPORTANT DETAILS</h2>
+    <div className="py-10 md:pb-10 md:pt-5 px-6 md:px-27 bg-[#77B6FF]">
+      <h2 className="text-2xl font-semibold border-b-4 inline-block border-black px-5">IMPORTANT DETAILS</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
         {details.map((item, index) => (
           <div
             key={index}
-            className="flex items-center justify-between bg-yellow-400 px-4 py-3 rounded-2xl font-semibold text-black shadow-sm cursor-pointer hover:scale-105 transition-all"
+            className="flex items-center justify-between bg-[#FFCB5A] px-4 py-5 rounded-2xl font-semibold text-black shadow-sm cursor-pointer hover:scale-105 transition-all"
           >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 ml-3">
               {item.icon}
-              <span>{item.label.toUpperCase()}</span>
+              <span className='font-bold text-xl tracking-wide'>{item.label.toUpperCase()}</span>
             </div>
-            <ArrowUpRight className="w-5 h-5" />
+            <ArrowUpRight className="w-8 h-8" />
           </div>
         ))}
       </div>
