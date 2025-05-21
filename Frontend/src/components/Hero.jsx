@@ -54,7 +54,7 @@ const Hero = () => {
 
 	return (
 		<div className="relative flex flex-col overflow-hidden h-[100vh] w-full bg-[#c3fddc] px-4 md:px-30 transition-all duration-75">
-			<div className="relative z-[50] w-full h-full">
+			<div className="relative z-[50] w-full h-full mt-50 lg:mt-0">
 				<div className="mt-11 z-30 w-full h-full">
 					<p
 						className={`text-black md:text-2xl pb-4 transition-all duration-200 text-sm ${
@@ -72,17 +72,17 @@ const Hero = () => {
 						transition={{ duration: 0.6, ease: "easeInOut" }}
 						className="z-[990] pointer-events-none flex"
 					>
-						<h1 className="text-black uppercase tracking-normal leading-[0.6] text-5xl md:text-[10.3vw] font-extrabold">
+						<h1 className="text-black uppercase tracking-normal leading-[0.8] lg:leading-[0.6] text-7xl md:text-[10.3vw] font-extrabold">
 							know your <br />
-							<span className="text-6xl md:text-[14vw] font-extrabold">colleges</span>
+							<span className="text-7xl md:text-[14vw] font-extrabold">colleges</span>
 						</h1>
 					</motion.div>
 
 					<div className="absolute bottom-12 w-full flex justify-between items-end">
-						<button className={`h-fit z-[20] px-3 py-1 border border-black rounded-full ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
+						<button className={`h-fit z-[20] px-3 whitespace-nowrap py-1 border border-black rounded-full ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
 							<span className="font-semibold text-xl">Get Started</span> <i class="ri-arrow-right-up-line text-xl ml-1"></i>
 						</button>
-						<div className={`z-[20] duration-400 transition-all hidden md:block ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
+						<div className={`z-[20] duration-400 transition-all block ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
 							<p className={`text-3xl sm:text-4xl md:text-3xl font-bold text-end ${animationClass}`}
 							dangerouslySetInnerHTML={{ __html: texts[changeText] }}></p>
 						</div>
@@ -130,12 +130,12 @@ const Hero = () => {
 			{/* SVG Icon */}
 			{showOverlay && (
 				<motion.svg
-					width="540"
+					width="520"
 					height="540"
 					viewBox="0 0 362 362"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
-					className="absolute md:top-5 md:left-60 z-[100] mix-blend-difference"
+					className="absolute mt-65 md:mt-0 md:ml-0 -ml-20 md:top-5 md:left-60 z-[100] mix-blend-difference -rotate-8"
 					initial={{ y: 500, opacity: 0, rotate: 0 }}
 					animate={{ y: 0, opacity: 1 }}
 					transition={{
