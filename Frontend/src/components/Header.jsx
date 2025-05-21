@@ -91,25 +91,25 @@ function Header() {
       </div>
 
       {/* Mobile Slide-in Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[70vw] bg-[#2E2E2E] text-white z-[100] transition-transform duration-300 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`fixed top-0 right-0 h-full w-[80vw] bg-[#2E2E2E] text-white z-[100] transition-transform duration-300 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className='p-4 border-b border-gray-500 flex justify-end'>
           <button onClick={() => setMenuOpen(false)}>
-            <i className="ri-close-line text-2xl"></i>
+            <i className="ri-close-line text-4xl"></i>
           </button>
         </div>
-        <div className='p-4 flex flex-col gap-4 font-medium'>
-          <button className='mx-4 my-2 rounded-full'><i class="ri-coupon-3-line"></i>College Events</button>
-          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F]'>Program</button>
-          <Link to='/mentor'>
-            <button className='border px-4 py-2 rounded-full bg-[#06FA6F] text-black flex gap-2 items-center'>Become Mentor<i className="ri-graduation-cap-line"></i></button>
-          </Link>
-          <hr className='border-gray-400 my-2' />
-          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F]'>College Events</button>
-          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F]'>College Compare</button>
-          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F]'>College Predictors</button>
-          <button className='text-black bg-[#06FA6F] px-4 py-2 rounded-full flex items-center justify-center gap-2 mt-2'>
-            <span className='text-sm font-semibold'>Login</span>
+        <h1 className='pt-5 pl-5 text-xl font-semibold'>TOOLS</h1>
+        <div className='py-3 px-10 flex flex-col items-start gap-2 font-medium'>
+          <button className='py-2 w-full text-start'><i class="ri-coupon-3-line"></i>College Events</button>
+          <button className='py-2 w-full text-start'><i class="ri-funds-line"></i>College Compare</button>
+          <button className='py-2 w-full text-start'><i class="ri-signpost-line"></i>College Predictors</button>
+          <hr className='border-gray-500 border w-full my-4' />
+          <button className='text-black bg-[#06FA6F] w-full text-start flex items-center gap-1 px-4 py-2 rounded-full'>
             <i className="ri-account-circle-2-line text-xl"></i>
+            <span className='text-md font-semibold'>Login</span>
+          </button>
+          <button className='text-black bg-[#06FA6F] w-full text-start flex items-center gap-1 px-4 py-2 rounded-full'>
+            <i className="ri-account-circle-2-line text-xl"></i>
+            <span className='text-md font-semibold'>Become A Mentor</span>
           </button>
         </div>
       </div>
