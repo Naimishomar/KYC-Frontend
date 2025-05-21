@@ -97,7 +97,7 @@ const AppretiationWall = () => {
 
 							{/* Big appreciation circle with text */}
 							<div
-								className={`absolute top-1/2  left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFAE00] w-[90vw] aspect-square `}
+								className={`absolute top-1/2  left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFAE00] w-[90vw] h-[90vw] md:w-120 md:h-120 `}
 							>
 								<div className="relative w-full h-full gap-5 flex flex-col items-center justify-center p-2 text-center">
 									<img
