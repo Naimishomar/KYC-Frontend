@@ -45,7 +45,7 @@ function Header() {
     <header className='relative top-0 left-0 w-full z-[10000]'>
 
       {/* Top Header */}
-      <div className='w-full bg-[#2E2E2E] px-4 sm:px-25 py-1 lg:py-3 flex items-center justify-between text-white'>
+      <div className='w-full bg-[#2E2E2E] px-4 sm:px-25 py-4 lg:py-3 flex items-center justify-between text-white'>
         <div className='flex items-center gap-4 sm:gap-6'>
           <div className='flex items-center cursor-pointer' onClick={() => navigate("/")}>
             <img className='w-5' src="https://www.knowyourcolleges.com/static/media/logo.84255c87a633c115a0b1.png" alt="logo" />
@@ -60,18 +60,18 @@ function Header() {
         </div>
 
         {/* Mobile Search Toggle */}
-        <div className="md:hidden flex items-center justify-center gap-2 p-2 rounded-full">
+        <div className="md:hidden absolute left-25 flex items-center justify-center px-2 py-1 rounded-full bg-[#3F3F3F]">
           {showSearch && (
-            <div className="border border-gray-400 rounded-full px-3 py-1 flex items-center w-40 bg-[#3F3F3F]">
+            <div className="px-3 flex items-center bg-[#3F3F3F]">
               <input
                 type="text"
                 placeholder={`Search ${text}`}
-                className="bg-transparent text-white outline-none w-full text-sm"
+                className="bg-transparent text-white outline-none w-full text-sm border-none"
               />
             </div>
           )}
-          <button onClick={() => setShowSearch(prev => !prev)} className='w-12 h-12 rounded-full bg-[#3F3F3F]'>
-            <i className="ri-search-line text-xl text-white" />
+          <button onClick={() => setShowSearch(prev => !prev)} className='rounded-full bg-[#3F3F3F]'>
+            <i className="ri-search-line text-white" />
           </button>
         </div>
 
@@ -86,7 +86,7 @@ function Header() {
 
         {/* Hamburger Icon */}
         <button className='lg:hidden text-2xl' onClick={() => setMenuOpen(true)}>
-          <i className="ri-menu-line"></i>
+          <i className="ri-menu-line text-2xl"></i>
         </button>
       </div>
 

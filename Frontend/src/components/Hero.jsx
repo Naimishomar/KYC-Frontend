@@ -54,12 +54,12 @@ const Hero = () => {
 
 	return (
 		<div className="relative flex flex-col overflow-hidden h-[100vh] w-full bg-[#c3fddc] px-4 md:px-30 transition-all duration-75">
-			<div className={`absolute block lg:hidden mt-20 right-0 mr-5 z-[100] duration-400 transition-all ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
+			<div className={`absolute block lg:hidden mt-10 right-0 mr-5 z-[100] duration-400 transition-all ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
 				<p className={`text-2xl sm:text-3xl md:text-3xl font-bold text-end ${animationClass}`}
 				dangerouslySetInnerHTML={{ __html: texts[changeText] }}></p>
 			</div>
-			<div className="relative z-[50] w-full h-full mt-50 lg:mt-0">
-				<div className="mt-11 z-30 w-full h-full">
+			<div className="relative z-[50] w-full h-full mt-60 lg:mt-0">
+				<div className="z-30 w-full h-full">
 					<p
 						className={`text-black md:text-2xl pb-4 transition-all duration-200 text-sm ${
 							showOverlay
@@ -67,7 +67,7 @@ const Hero = () => {
 								: "invisible opacity-0 -translate-y-10"
 						}`}
 					>
-						<span className="text-sm md:text-xl font-[400] tracking-wide">Connecting you with Seniors from your Desired Colleges & Courses</span>
+						<span className="text-sm md:text-xl font-[400] tracking-wide">Connecting you with Seniors from your Desired <br /> Colleges & Courses</span>
 					</p>
 
 					<motion.div
@@ -82,7 +82,7 @@ const Hero = () => {
 						</h1>
 					</motion.div>
 
-					<div className="absolute bottom-12 w-full flex justify-between items-end">
+					<div className="absolute bottom-15 w-full flex justify-between items-end">
 						<button className={`h-fit ml-5 lg:ml-0 z-[20] px-10 lg:px-5 whitespace-nowrap py-1 border border-black rounded-full ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
 							<span className="font-semibold text-xl">Get Started</span> <i class="ri-arrow-right-up-line text-xl ml-1"></i>
 						</button>
@@ -139,7 +139,7 @@ const Hero = () => {
 					viewBox="0 0 362 362"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
-					className="absolute mt-65 md:mt-0 md:ml-0 -ml-20 md:top-5 md:left-60 z-[100] mix-blend-difference -rotate-8"
+					className="absolute mt-65 md:mt-0 md:ml-0 -ml-25 md:top-5 md:left-60 z-[100] mix-blend-difference -rotate-8"
 					initial={{ y: 500, opacity: 0, rotate: 0 }}
 					animate={{ y: 0, opacity: 1 }}
 					transition={{
