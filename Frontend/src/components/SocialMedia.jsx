@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const socials = [
   {
     name: 'Instagram',
     image: '/insta.png', 
-	link: "https://instagram.com/knowyourcolleges_kyc",
   },
   {
     name: 'Linkedin',
     image: '/linkedin.png',
-	link: "https://linkedin.com/company/knowyourcolleges",
-
   },
   {
     name: 'Twitter',
     image: '/twitter.png',
-	link: "https://twitter.com/knowyourcolleges",
   },
 ];
 
@@ -32,38 +28,34 @@ const SocialMedia = () => {
   }, []);
 
   return (
-    <div className="bg-[#A6FFC7] text-black flex flex-col lg:flex-row justify-between gap-8 relative h-[120vh] py-3">
+    <div className="bg-[#A6FFC7] text-black flex flex-col lg:flex-row justify-between gap-8 relative lg:h-[110vh] h-[85vh]">
+      
       {/* Left Section */}
-      <div className="flex flex-col w-full lg:w-[45%] absolute">
-        <div className="text-5xl md:text-8xl leading-[0.8] font-semibold px-2 md:pl-25 text-start">
-          <div>OU</div>
-          <div className='ml-25'>R~</div>
-          <div>SOC</div>
-          <div className='ml-15'>IALS</div>
+      <div className="flex flex-col w-full lg:w-[45%] pt-10 pl-10">
+        <div className="text-5xl sm:text-6xl md:text-4xl lg:text-[85px] font-semibold leading-[0.85] px-2 sm:px-15 text-start">
+          <img src="/ourSocials.png" alt="" className='w-[40%] lg:w-full md:w-full'/>
         </div>
 
-        <div className="mt-10 flex flex-col ml-60 text-xl sm:text-xl md:text-2xl font-medium">
-			<div className='text-start w-50'>
-				{socials.map((item, i) => (
-					<div
-					key={item.name}
-					className={`transition-all duration-300 mb-3 px-2 ${
-						i === index ? 'text-black font-bold text-3xl' : 'text-black font-[400]'
-					}`}
-					>
-					<div className="flex items-center gap-2">
-						<span className={`rounded-full bg-black inline-block ${ i === index ? 'w-3 h-3' : 'h-2 w-2'}`}></span>
-						<Link to={item.link}>{item.name}</Link>
-					</div>
-					</div>
-				))}
-			</div>
+        <div className="mt-8 flex flex-col items-start text-xl sm:text-2xl md:text-3xl font-medium px-4 sm:px-8">
+          {socials.map((item, i) => (
+            <div
+              key={item.name}
+              className={`transition-all duration-300 mb-2 ${
+                i === index ? 'text-black font-bold' : 'text-gray-600'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-black inline-block"></span>
+                {item.name}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* Right Section */}
-      <div className="w-full lg:w-200 mt-6 lg:mt-0 absolute right-0">
-        <div className="relative w-full h-full py-5 sm:h-84 md:h-84 lg:h-full rounded-2xl overflow-hidden">
+      <div className="w-full relative flex mx-auto">
+        <div className="relative w-full h-full sm:h-80 md:h-84 lg:h-full rounded-2xl overflow-hidden ml-5">
           <AnimatePresence mode="wait">
             <motion.img
               key={socials[index].image}
@@ -73,7 +65,7 @@ const SocialMedia = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="w-full h-full object-contain"
+              className="w-[95%] object-cover py-5"
             />
           </AnimatePresence>
         </div>

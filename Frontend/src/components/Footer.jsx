@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 
 function Footer() {
   return (
-    <footer className="w-full min-h-screen bg-[#01200C] md:px-30 md:py-20 relative overflow-hidden">
-      <div className="flex flex-col md:flex-row justify-between">
+    <footer className="w-full h-[60vh] lg:min-h-screen bg-[#01200C] p-10 md:px-30 md:py-20 relative overflow-hidden">
+      <div className="flex flex-col-reverse md:flex-row justify-between">
         {/* Contact Section */}
-        <div className="">
+        <div className="mt-20 lg:mt-0">
           <h1 className="text-3xl flex items-center gap-2 sm:text-3xl md:text-5xl font-bold text-white leading-tight">
             <img src="https://www.knowyourcolleges.com/static/media/logo.84255c87a633c115a0b1.png" className='w-10 h-10'/>GET IN TOUCH:
           </h1>

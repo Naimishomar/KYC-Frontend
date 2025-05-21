@@ -122,9 +122,9 @@ const FindMentors = () => {
 		<div className='w-full bg-[#f3f3f3f7] text-black'>
 
 			{/* Header Row */}
-			<div className='w-full flex flex-col sm:flex-row items-start sm:items-center justify-between pt-6 pb-3 px-23 gap-4'>
+			<div className='w-full flex justify-between pt-6 pb-3 px-5 lg:px-23 gap-4'>
 			<h1 className='text-3xl sm:text-4xl md:text-5xl font-bold whitespace-nowrap'>Find Mentors-</h1>
-			<button className='text-lg sm:text-xl flex gap-2 sm:gap-3 items-center px-4 py-2 rounded-full bg-[#5BE38D] cursor-pointer hover:bg-green-400 md:px-12 justify-center'><span className="font-bold text-md">VIEW ALL</span>
+			<button className='hidden text-sm lg:text-xl lg:flex gap-2 sm:gap-3 items-center px-4 py-1 lg:py-2 rounded-full bg-[#5BE38D] cursor-pointer hover:bg-green-400 md:px-12 justify-center'><span className="font-bold text-md">VIEW ALL</span>
 				<i className="ri-graduation-cap-line text-2xl sm:text-3xl"></i>
 			</button>
 			</div>
@@ -214,9 +214,12 @@ const FindMentors = () => {
 		</div>
 		{/* Filter Section Ends */}
 
-		<div className="py-3 bg-[#f3f3f3]">
+		<div className="py-3 bg-[#f3f3f3] flex flex-col-reverse lg:flex-col">
 			<div className="w-full">
-				<img src="/arrow.png" alt="" className="mx-auto w-1/4" />
+				<img src="/arrow.png" alt="" className="mx-auto w-1/2 lg:w-1/4" />
+				<div className="mx-10 mt-3 flex lg:hidden">
+					<button className="w-full py-2 rounded-full bg-[#5BE38D] flex justify-center items-center"><span className="font-semibold">VIEW ALL<i className="ri-graduation-cap-line text-2xl sm:text-3xl ml-2"></i></span></button>
+				</div>
 			</div>
 			<div className="flex flex-col gap-2">
 				<div
