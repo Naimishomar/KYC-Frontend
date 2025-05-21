@@ -58,7 +58,7 @@ const Hero = () => {
 				<p className={`text-2xl sm:text-3xl md:text-3xl font-bold text-end ${animationClass}`}
 				dangerouslySetInnerHTML={{ __html: texts[changeText] }}></p>
 			</div>
-			<div className="relative z-[50] w-full h-full top-[21%] lg:mt-0">
+			<div className="relative z-[50] w-full h-full mt-60 lg:mt-10">
 				<div className="z-30 w-full h-full">
 					<p
 						className={`text-black md:text-2xl pb-4 transition-all duration-200 text-sm ${
@@ -67,7 +67,7 @@ const Hero = () => {
 								: "invisible opacity-0 -translate-y-10"
 						}`}
 					>
-						<span className="text-sm md:text-xl font-[400] tracking-wide">Connecting you with Seniors from your Desired <br /> Colleges & Courses</span>
+						<span className="text-sm md:text-xl font-[400] tracking-wide">Connecting you with Seniors from your Desired Colleges & Courses</span>
 					</p>
 
 					<motion.div
@@ -82,7 +82,7 @@ const Hero = () => {
 						</h1>
 					</motion.div>
 
-					<div className="absolute bottom-15 w-full flex justify-between items-end">
+					<div className="absolute bottom-10 w-full flex justify-between items-end">
 						<button className={`h-fit ml-5 lg:ml-0 z-[20] px-10 lg:px-5 whitespace-nowrap py-1 border border-black rounded-full ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
 							<span className="font-semibold text-xl">Get Started</span> <i class="ri-arrow-right-up-line text-xl ml-1"></i>
 						</button>
@@ -94,14 +94,14 @@ const Hero = () => {
 
 					{/* Overlapping green shapes */}
 					<div
-						className={`hidden md:block w-[800px] h-[600px] bg-[#5BE38D] absolute top-0 right-0   duration-1000 ${
+						className={`md:block w-[900px] lg:w-[800px] h-[600px] bg-[#5BE38D] absolute top-0 right-0   duration-1000 ${
 							showOverlay
 								? "visible -translate-y-50 translate-x-190 rotate-60"
 								: "invisible -translate-y-500 translate-x-400 rotate-0"
 						}`}
 					></div>
 					<div
-						className={`hidden md:block w-[800px]  h-[600px] bg-[#5BE38D] absolute top-0 bottom-0  duration-1000 transition-all ${
+						className={`md:block w-[900px]  h-[850px] bg-[#5BE38D] absolute top-0 bottom-0  duration-1000 transition-all ${
 							showOverlay
 								? "visible translate-y-100 -translate-x-180 -rotate-30 "
 								: "invisible translate-y-400 -translate-x-0 rotate-0"
@@ -139,7 +139,7 @@ const Hero = () => {
 					viewBox="0 0 362 362"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
-					className="absolute top-[23%] md:mt-0 md:ml-0 -ml-25 md:top-5 md:left-60 z-[100] mix-blend-difference -rotate-8"
+					className="absolute mt-66 md:mt-5 md:ml-0 -ml-25 md:left-60 z-[100] mix-blend-difference -rotate-8 lg:rotate-4"
 					initial={{ y: 500, opacity: 0, rotate: 0 }}
 					animate={{ y: 0, opacity: 1 }}
 					transition={{
