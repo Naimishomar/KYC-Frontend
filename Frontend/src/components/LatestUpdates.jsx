@@ -106,7 +106,7 @@ const LatestUpdates = () => {
 							key={item.id}
 							className="bg-white rounded-2xl overflow-hidden shadow-md w-full md:w-130 h-100"
 						>
-							<div className="mx-4 mt-4 mb-2 rounded-xl overflow-hidden bg-red-500">
+							<div className="mx-4 mt-4 mb-2 rounded-xl overflow-hidden">
 								<img
 									src={item.image}
 									alt="cover"
