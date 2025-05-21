@@ -82,9 +82,9 @@ const AppretiationWall = () => {
 					<AnimatePresence mode="wait">
 						<motion.div
 							key={index}
-							initial={{x:-200, y: 400, opacity: 0, scale: 0 }}
+							initial={{x:-100, y: 400, opacity: 0, scale: 0 }}
 							animate={{x:0, y: 0, opacity: 1, scale: 1 }}
-							exit={{x:200, y: -400, opacity: 0, scale: 0 }}
+							exit={{x:100, y: -400, opacity: 0, scale: 0 }}
 							transition={{ duration: 0.8, ease: "easeInOut" }}
 							className="absolute flex flex-col items-center"
 						>

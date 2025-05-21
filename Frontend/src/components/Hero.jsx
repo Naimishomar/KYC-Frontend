@@ -54,6 +54,10 @@ const Hero = () => {
 
 	return (
 		<div className="relative flex flex-col overflow-hidden h-[100vh] w-full bg-[#c3fddc] px-4 md:px-30 transition-all duration-75">
+			<div className={`absolute block lg:hidden mt-20 right-0 mr-5 z-[100] duration-400 transition-all ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
+				<p className={`text-2xl sm:text-3xl md:text-3xl font-bold text-end ${animationClass}`}
+				dangerouslySetInnerHTML={{ __html: texts[changeText] }}></p>
+			</div>
 			<div className="relative z-[50] w-full h-full mt-50 lg:mt-0">
 				<div className="mt-11 z-30 w-full h-full">
 					<p
@@ -79,10 +83,10 @@ const Hero = () => {
 					</motion.div>
 
 					<div className="absolute bottom-12 w-full flex justify-between items-end">
-						<button className={`h-fit z-[20] px-3 whitespace-nowrap py-1 border border-black rounded-full ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
+						<button className={`h-fit ml-5 lg:ml-0 z-[20] px-10 lg:px-5 whitespace-nowrap py-1 border border-black rounded-full ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
 							<span className="font-semibold text-xl">Get Started</span> <i class="ri-arrow-right-up-line text-xl ml-1"></i>
 						</button>
-						<div className={`z-[20] duration-400 transition-all block ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
+						<div className={`hidden lg:block z-[20] duration-400 transition-all ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
 							<p className={`text-3xl sm:text-4xl md:text-3xl font-bold text-end ${animationClass}`}
 							dangerouslySetInnerHTML={{ __html: texts[changeText] }}></p>
 						</div>
