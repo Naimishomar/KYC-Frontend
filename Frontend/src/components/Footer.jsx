@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 function Footer() {
   return (
-    <footer className="w-full h-[60vh] lg:min-h-screen bg-[#01200C] p-10 md:px-30 md:py-20 relative overflow-hidden">
+    <footer className="w-full h-[70vh] lg:min-h-screen bg-[#01200C] p-10 md:px-30 md:py-20 relative overflow-hidden">
       <div className="flex flex-col-reverse md:flex-row justify-between">
         {/* Contact Section */}
         <div className="mt-20 lg:mt-0">
@@ -45,13 +45,13 @@ function Footer() {
       {/* Optional Footer Label */}
 			<motion.div
 				initial={{ y: 100, opacity: 0 }}
-				whileInView={{ y: 10, opacity: 0.1 }}
+				whileInView={{ y: 10, opacity: 0.2 }}
 				transition={{ duration: 1, ease: "easeOut" }}
 				viewport={{ once: true }}
-				className="absolute bottom-0 left-0 w-full text-center tracking-[-0.3rem]  md:tracking-[-0.5rem] text-[10vw] md:text-[9.5vw] whitespace-nowrap font-extrabold text-[#d8d8d8] select-none"
+				className="absolute bottom-0 left-0 w-full text-center tracking-[-0.24rem]  md:tracking-[-0.5rem] text-[10vw] md:text-[9.5vw] whitespace-nowrap font-extrabold text-[#d8d8d8] select-none"
 				style={{
 					fontSize: "vw",
-					lineHeight: "1.5",
+					lineHeight: "2",
 					scaleY: 2,
 				}}
 			>
