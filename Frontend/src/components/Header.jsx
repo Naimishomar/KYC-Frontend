@@ -60,7 +60,7 @@ function Header() {
         </div>
 
         {/* Mobile Search Toggle */}
-        <div className="md:hidden absolute left-25 flex items-center justify-center px-2 py-1 rounded-full bg-[#3F3F3F]">
+        <div className="md:hidden flex items-center justify-center px-2 py-1 rounded-full bg-[#3F3F3F]">
           {showSearch && (
             <div className="px-3 flex items-center bg-[#3F3F3F]">
               <input
