@@ -45,7 +45,7 @@ function Header() {
     <header className='relative top-0 left-0 w-full z-[10000]'>
 
       {/* Top Header */}
-      <div className='w-full bg-[#2E2E2E] px-4 sm:px-25 py-3 flex items-center justify-between text-white'>
+      <div className='w-full bg-[#2E2E2E] px-4 sm:px-25 py-1 lg:py-3 flex items-center justify-between text-white'>
         <div className='flex items-center gap-4 sm:gap-6'>
           <div className='flex items-center cursor-pointer' onClick={() => navigate("/")}>
             <img className='w-5' src="https://www.knowyourcolleges.com/static/media/logo.84255c87a633c115a0b1.png" alt="logo" />
@@ -98,7 +98,7 @@ function Header() {
           </button>
         </div>
         <div className='p-4 flex flex-col gap-4 font-medium'>
-          <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F]'>Home</button>
+          <button className='mx-4 my-2 rounded-full'><i class="ri-coupon-3-line"></i>College Events</button>
           <button className='border border-gray-400 px-4 py-2 rounded-full bg-[#3F3F3F]'>Program</button>
           <Link to='/mentor'>
             <button className='border px-4 py-2 rounded-full bg-[#06FA6F] text-black flex gap-2 items-center'>Become Mentor<i className="ri-graduation-cap-line"></i></button>

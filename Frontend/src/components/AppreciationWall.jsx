@@ -78,7 +78,7 @@ const AppretiationWall = () => {
 			</div>
 			<div className="relative w-full h-full flex items-center justify-center overflow-hidden">
 				{/* Animated text in center circle */}
-				<div className="relative w-full h-full bg-red-400 overflow-hidden flex items-center justify-center">
+				<div className="relative w-full h-full overflow-hidden flex items-center justify-center">
 					<AnimatePresence mode="wait">
 						<motion.div
 							key={index}
