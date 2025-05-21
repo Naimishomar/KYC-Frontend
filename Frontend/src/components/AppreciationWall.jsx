@@ -78,7 +78,7 @@ const AppretiationWall = () => {
 			</div>
 			<div className="relative w-full h-full flex items-center justify-center overflow-hidden">
 				{/* Animated text in center circle */}
-				<div className="relative w-full h-full overflow-hidden flex items-center justify-center">
+				<div className="relative w-full h-full bg-red-400 overflow-hidden flex items-center justify-center">
 					<AnimatePresence mode="wait">
 						<motion.div
 							key={index}
@@ -97,21 +97,21 @@ const AppretiationWall = () => {
 
 							{/* Big appreciation circle with text */}
 							<div
-								className={`absolute top-1/2  left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFAE00] w-100 h-100 md:w-120 md:h-120 `}
+								className={`absolute top-1/2  left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFAE00] w-95 h-95 md:w-120 md:h-120 `}
 							>
-								<div className="relative w-full h-full gap-8 flex flex-col items-center justify-center p-2 text-center">
+								<div className="relative w-full h-full gap-5 flex flex-col items-center justify-center p-2 text-center">
 									<img
 										className="w-15 h-15 md:w-20 md:h-20 rounded-full"
 										src="https://images.pexels.com/photos/31910663/pexels-photo-31910663/free-photo-of-person-fishing-at-tranquil-lake-under-clear-sky.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 									/>
-									<p className="text-sm font-semibold px-14">
+									<p className="text-[13px] lg:text-sm font-semibold px-14">
 										{appreciation.appreciation}
 									</p>
 									<div className="text-secondary-text">
 										<h3 className="text-sm ">
 											{appreciation.name}
 										</h3>
-										<div className="text-xs">
+										<div className="text-[10px] lg:text-xs overflow-hidden">
 											{appreciation.degree}{" "}
 											<span className="font-bold">|</span>{" "}
 											{appreciation.college}
