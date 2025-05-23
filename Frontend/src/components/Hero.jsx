@@ -53,7 +53,7 @@ const Hero = () => {
 	];
 
 	return (
-		<div className="relative flex flex-col overflow-hidden h-fit md:h-screen w-full bg-[#c3fddc] px-4 md:px-30 transition-all duration-75">
+		<div className="relative flex flex-col overflow-hidden h-screen w-full bg-[#c3fddc] px-4 md:px-30 transition-all duration-75">
 			<div className={`absolute block lg:hidden mt-10 right-0 mr-5 z-[100] duration-400 transition-all ${showOverlay ? "visible opacity-100" : "invisible opacity-0"}`}>
 				<p className={`text-2xl sm:text-3xl md:text-3xl font-bold text-end ${animationClass}`}
 				dangerouslySetInnerHTML={{ __html: texts[changeText] }}></p>

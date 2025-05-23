@@ -53,7 +53,7 @@ function Header() {
           </div>
 
           {/* Desktop Search */}
-          <div className='hidden md:flex border border-gray-400 rounded-full px-2 items-center w-64 lg:w-72 bg-[#3F3F3F]'>
+          <div className='hidden md:flex border border-gray-400 rounded-full px-2 items-center w-55 lg:w-72 bg-[#3F3F3F]'>
             <input type="text" placeholder={`Search ${text}`} className="px-2 py-1 text-white focus:outline-none w-full bg-transparent" />
             <i className="ri-search-line text-xl text-white p-1 rounded-full"></i>
           </div>
