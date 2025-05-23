@@ -107,10 +107,10 @@ function Header() {
             <i className="ri-account-circle-2-line text-xl"></i>
             <span className='text-md font-semibold'>Login</span>
           </button>
-          <button className='text-black bg-[#06FA6F] w-full text-start flex items-center gap-1 px-4 py-2 rounded-full'>
+          <Link to='/mentor' className='text-black bg-[#06FA6F] w-full text-start flex items-center gap-1 px-4 py-2 rounded-full'><button>
             <i className="ri-account-circle-2-line text-xl"></i>
             <span className='text-md font-semibold'>Become A Mentor</span>
-          </button>
+          </button></Link>
         </div>
       </div>
 
