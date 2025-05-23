@@ -92,7 +92,7 @@ const FindMentors = () => {
 
 			document.querySelectorAll(".mentor").forEach((el) => {
 				const elRect = el.getBoundingClientRect();
-				const elCenter = elRect.left + elRect.width / 2;
+				const elCenter = elRect.left + elRect.width / 2.5;
 				const distance = Math.abs(containerCenter - elCenter);
 
 				if (distance < closestDistance) {
