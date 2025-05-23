@@ -85,7 +85,7 @@ const FindMentors = () => {
 
 		const handleScroll = () => {
 			const containerRect = scrollContainer.getBoundingClientRect();
-			const containerCenter = containerRect.left + containerRect.width / 2;
+			const containerCenter = containerRect.left + containerRect.width / 2.5;
 
 			let closestElement = null;
 			let closestDistance = Infinity;
@@ -116,6 +116,27 @@ const FindMentors = () => {
 			scrollContainer.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
+
+	useEffect(() => {
+		const container = mentorScrollRef.current;
+		if (!container) return;
+
+		const scroll = () => {
+		if (!hovered) {
+			if (
+			container.scrollLeft + container.clientWidth >=
+			container.scrollWidth
+			) {
+			container.scrollTo({ left: 0, behavior: "smooth" });
+			} else {
+			container.scrollBy({ left: 1, behavior: "smooth" });
+			}
+		}
+		};
+
+		const interval = setInterval(scroll, 2000);
+		return () => clearInterval(interval);
+  }, []);
 
 	return (
 		<>
@@ -243,7 +264,7 @@ const FindMentors = () => {
 										${
 											index === selectedIndex + 1 ||
 											index === selectedIndex - 1
-												? "h-[300px] w-[250px]"
+												? "h-[350px] w-[250px]"
 												: index === selectedIndex
 												? "h-[400px] w-[250px]"
 												: "w-[200px] h-[300px]"
@@ -280,7 +301,7 @@ const FindMentors = () => {
 												: { opacity: 1, y: 150 }
 										}
 										transition={{
-											duration: 0.35,
+											duration: 0.25,
 											ease: "easeOut",
 										}}
 									>
