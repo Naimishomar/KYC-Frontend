@@ -217,31 +217,20 @@ const FindColleges = () => {
         <div className='w-full bg-[#70B2FF] px-4 sm:px-23 py-3'>
 
           {/* Toggle Button for Mobile (below lg / 1024px) */}
-          <div className='lg:hidden flex justify-between items-center'>
-            <p className='text-xl font-bold flex items-center gap-2'>
-              Filters <i className="ri-filter-3-fill font-medium"></i>
-            </p>
-            <button
-              onClick={() => setShowFilters(!showFilters)}
-              className='text-base bg-white px-4 py-2 rounded-full flex items-center gap-2'
-            >
-              {showFilters ? 'Hide' : 'Show'} Options
-              <i className="ri-arrow-drop-down-line text-2xl"></i>
-            </button>
-          </div>
 
           {/* Filters Container */}
-          <div className={`mt-4 lg:mt-0 ${showFilters ? 'block' : 'hidden'} lg:flex lg:justify-between lg:items-center lg:flex-row flex-col gap-4`}>
+          <div className={`mt-4 lg:mt-0 flex lg:flex lg:justify-between lg:items-center lg:flex-row flex-col gap-4`}>
 
             {/* Left Filters */}
-            <div className='flex flex-col sm:flex-row flex-wrap gap-3 items-start sm:items-center'>
+            <div className='flex gap-3 items-start sm:items-center'>
               <div className='flex items-center gap-2 text-lg sm:text-xl font-bold '>
                 <span className=''>Filters</span>
                 <i className="ri-filter-3-fill font-medium text-2xl"></i>
               </div>
             <hr className="rotate-90 w-12 rounded-full border-3 border-black"/>
+
               <div className="relative w-fit flex">
-                  <button onClick={()=>setShowSelect(prev=>!prev)} className={`text-base sm:text-lg flex items-center rounded-full gap-2 font-semibold border border-black px-4 py-0 cursor-pointer overflow-hidden transition-all duration-200 ${showSelect && "w-fit"}`}>                <span className="font-semibold text-sm">Courses</span>
+                  <button onClick={()=>setShowSelect(prev=>!prev)} className={`text-base sm:text-lg flex items-center rounded-full gap-2 font-semibold border border-black px-4 py-0 cursor-pointer overflow-hidden transition-all duration-200 ${showSelect && "w-fit"}`}><span className="font-semibold text-sm">Courses</span>
                     <i className="ri-book-shelf-line text-2xl font-medium"></i>
                     {showSelect && (
                     <MultiSelect
@@ -264,7 +253,7 @@ const FindColleges = () => {
             </div>
 
               <button onClick={()=>setInstitution(prev=>!prev)} className={`text-base sm:text-lg flex items-center rounded-full gap-2 font-semibold border border-black px-4 py-0 cursor-pointer overflow-hidden transition-all duration-200 ${institution && "w-fit"}`}>
-                <span className="font-semibold text-sm">Institution Types</span>
+                <span className="font-semibold text-sm whitespace-nowrap">Institution Types</span>
                 <i className="ri-bank-line text-2xl font-medium"></i>
                 {institution && (
                     <MultiSelect

@@ -92,7 +92,7 @@ const FindMentors = () => {
 
 			document.querySelectorAll(".mentor").forEach((el) => {
 				const elRect = el.getBoundingClientRect();
-				const elCenter = elRect.left + elRect.width / 2.5;
+				const elCenter = elRect.left + elRect.width / 2.2;
 				const distance = Math.abs(containerCenter - elCenter);
 
 				if (distance < closestDistance) {
@@ -140,45 +140,35 @@ const FindMentors = () => {
 
 	return (
 		<>
+
+			{/* Header Row */}
 		<div className='w-full bg-[#f3f3f3f7] text-black'>
 
 			{/* Header Row */}
-			<div className='w-full flex justify-between pt-6 pb-3 px-5 lg:px-23 gap-4'>
-			<h1 className='text-3xl sm:text-4xl md:text-5xl font-bold whitespace-nowrap'>Find Mentors-</h1>
-			<button className='hidden text-sm lg:text-xl lg:flex gap-2 sm:gap-3 items-center px-4 py-1 lg:py-2 rounded-full bg-[#5BE38D] cursor-pointer hover:bg-green-400 md:px-12 justify-center'><span className="font-bold text-md">VIEW ALL</span>
-				<i className="ri-graduation-cap-line text-2xl sm:text-3xl"></i>
-			</button>
-			</div>
+				<div className='w-full flex justify-between pt-6 pb-3 px-5 lg:px-23 gap-4'>
+				<h1 className='text-3xl sm:text-4xl md:text-5xl font-bold whitespace-nowrap'>Find Mentors-</h1>
+				<button className='hidden text-sm lg:text-xl lg:flex gap-2 sm:gap-3 items-center px-4 py-1 lg:py-2 rounded-full bg-[#5BE38D] cursor-pointer hover:bg-green-400 md:px-12 justify-center'><span className="font-bold text-md">VIEW ALL</span>
+					<i className="ri-graduation-cap-line text-2xl sm:text-3xl"></i>
+				</button>
+				</div>
 
 			{/* Filter Bar */}
 			<div className='w-full bg-[#70B2FF] px-4 sm:px-23 py-3'>
 
 			{/* Toggle Button for Mobile (below lg / 1024px) */}
-			<div className='lg:hidden flex justify-between items-center'>
-				<p className='text-xl font-bold flex items-center gap-2'>
-				Filters <i className="ri-filter-3-fill font-medium"></i>
-				</p>
-				<button
-				onClick={() => setShowFilters(!showFilters)}
-				className='text-base bg-white px-4 py-2 rounded-full flex items-center gap-2'
-				>
-				{showFilters ? 'Hide' : 'Show'} Options
-				<i className="ri-arrow-drop-down-line text-2xl"></i>
-				</button>
-			</div>
 
 			{/* Filters Container */}
-			<div className={`mt-4 lg:mt-0 ${showFilters ? 'block' : 'hidden'} lg:flex lg:justify-between lg:items-center lg:flex-row flex-col gap-4`}>
+			<div className={`mt-4 lg:mt-0 flex lg:flex lg:justify-between lg:items-center lg:flex-row flex-col gap-4`}>
 
 				{/* Left Filters */}
-				<div className='flex flex-col sm:flex-row flex-wrap gap-3 items-start sm:items-center'>
+				<div className='flex gap-3 items-start sm:items-center'>
 				<div className='flex items-center gap-2 text-lg sm:text-xl font-bold '>
 					<span className=''>Filters</span>
 					<i className="ri-filter-3-fill font-medium text-2xl"></i>
 				</div>
 				<hr className="rotate-90 w-12 rounded-full border-3 border-black"/>
 				<div className="relative w-fit flex">
-					<button onClick={()=>setShowSelect(prev=>!prev)} className={`text-base sm:text-lg flex items-center rounded-full gap-2 font-semibold border border-black px-4 py-0 cursor-pointer overflow-hidden transition-all duration-200 ${showSelect && "w-fit"}`}>                <span className="font-semibold text-sm">Courses</span>
+					<button onClick={()=>setShowSelect(prev=>!prev)} className={`text-base sm:text-lg flex items-center rounded-full gap-2 font-semibold border border-black px-4 py-0 cursor-pointer overflow-hidden transition-all duration-200 ${showSelect && "w-fit"}`}><span className="font-semibold text-sm">Courses</span>
 						<i className="ri-book-shelf-line text-2xl font-medium"></i>
 						{showSelect && (
 						<MultiSelect
@@ -201,7 +191,7 @@ const FindMentors = () => {
 				</div>
 
 				<button onClick={()=>setInstitution(prev=>!prev)} className={`text-base sm:text-lg flex items-center rounded-full gap-2 font-semibold border border-black px-4 py-0 cursor-pointer overflow-hidden transition-all duration-200 ${institution && "w-fit"}`}>
-					<span className="font-semibold text-sm">Institution Types</span>
+					<span className="font-semibold text-sm whitespace-nowrap">Institution Types</span>
 					<i className="ri-bank-line text-2xl font-medium"></i>
 					{institution && (
 						<MultiSelect

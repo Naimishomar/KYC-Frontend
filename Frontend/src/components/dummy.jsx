@@ -3,285 +3,369 @@ import { motion } from "framer-motion";
 import { MultiSelect } from '@mantine/core';
 
 const dummyMentors = [
-  {
-    id: "mentor1",
-    name: "Anamika Sharma",
-    expertise: "JEE",
-    branch: "Computer Science",
-    institution: "IIT Delhi",
-    profile_pic: "mentor1.png",
-    rating: 5,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: "mentor2",
-    name: "Anant Sharama",
-    expertise: "BITSAT",
-    branch: "Computer Science",
-    institution: "Amity Delhi",
-    profile_pic: "mentor3.png",
-    rating: 5,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: "mentor3",
-    name: "Karan Deb",
-    expertise: "JEE",
-    branch: "Computer Science",
-    institution: "IIT Delhi",
-    profile_pic: "mentor2.png",
-    rating: 5,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: "mentor4",
-    name: "Anamika Sharma",
-    expertise: "JEE",
-    branch: "Computer Science",
-    institution: "IIT Delhi",
-    profile_pic: "mentor1.png",
-    rating: 5,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: "mentor5",
-    name: "Anant Sharama",
-    expertise: "BITSAT",
-    branch: "Computer Science",
-    institution: "Amity Delhi",
-    profile_pic: "mentor3.png",
-    rating: 5,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: "mentor6",
-    name: "Anamika Sharma",
-    expertise: "JEE",
-    branch: "Computer Science",
-    institution: "IIT Delhi",
-    profile_pic: "mentor1.png",
-    rating: 5,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
+	{
+		id: "mentor1",
+		name: "Anamika Sharma",
+		expertise: "JEE",
+		branch: "Computer Science",
+		institution: "IIT Delhi",
+		profile_pic: "mentor1.png",
+		rating: 5,
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+	},
+	{
+		id: "mentor2",
+		name: "Anant Sharama",
+		expertise: "BITSAT",
+		branch: "Computer Science",
+		institution: "Amity Delhi",
+		profile_pic: "mentor3.png",
+		rating: 5,
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+	},
+	{
+		id: "mentor3",
+		name: "Karan Deb",
+		expertise: "JEE",
+		branch: "Computer Science",
+		institution: "IIT Delhi",
+		profile_pic: "mentor2.png",
+		rating: 5,
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+	},
+	{
+		id: "mentor4",
+		name: "Anamika Sharma",
+		expertise: "JEE",
+		branch: "Computer Science",
+		institution: "IIT Delhi",
+		profile_pic: "mentor1.png",
+		rating: 5,
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+	},
+	{
+		id: "mentor5",
+		name: "Anant Sharama",
+		expertise: "BITSAT",
+		branch: "Computer Science",
+		institution: "Amity Delhi",
+		profile_pic: "mentor3.png",
+		rating: 5,
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+	},
+	{
+		id: "mentor6",
+		name: "Anamika Sharma",
+		expertise: "JEE",
+		branch: "Computer Science",
+		institution: "IIT Delhi",
+		profile_pic: "mentor1.png",
+		rating: 5,
+		description:
+			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+	},
 ];
 
 const FindMentors = () => {
-  const [selectedMentor, setSelectedMentor] = useState(dummyMentors[0]);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-  const scrollRef = useRef(null);
-  const rafId = useRef(null);
-  const [isHovering, setIsHovering] = useState(false);
-  const [showFilters, setShowFilters] = useState(false);
-  const [showSelect, setShowSelect] = useState(false);
-  const [institution, setInstitution] = useState(false)
+	const [selectedMentor, setSelectedMentor] = useState(dummyMentors[2]);
+	const [hovered, setHovered] = useState(null);
+	const mentorScrollRef = useRef(null);
+	const [showFilters, setShowFilters] = useState(false);
+	const [showSelect, setShowSelect] = useState(false);
+	const [institution, setInstitution] = useState(false)
 
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
+	useEffect(() => {
+		const scrollContainer = mentorScrollRef.current;
+		if (!scrollContainer) return;
 
-    const handleScroll = () => {
-      if (rafId.current) cancelAnimationFrame(rafId.current);
+		const handleScroll = () => {
+			const containerRect = scrollContainer.getBoundingClientRect();
+			const containerCenter = containerRect.left + containerRect.width / 2.5;
 
-      rafId.current = requestAnimationFrame(() => {
-        const center = container.scrollLeft + container.offsetWidth / 2;
-        let closest = null;
-        let minDistance = Infinity;
+			let closestElement = null;
+			let closestDistance = Infinity;
 
-        Array.from(container.children).forEach((el) => {
-          const rect = el.getBoundingClientRect();
-          const elCenter = rect.left + rect.width / 2;
-          const distance = Math.abs(elCenter - window.innerWidth / 2);
-          if (distance < minDistance) {
-            minDistance = distance;
-            closest = el;
-          }
-        });
+			document.querySelectorAll(".mentor").forEach((el) => {
+				const elRect = el.getBoundingClientRect();
+				const elCenter = elRect.left + elRect.width / 2.5;
+				const distance = Math.abs(containerCenter - elCenter);
 
-        const id = closest?.getAttribute("id");
-        const found = dummyMentors.find((m) => m.id === id);
-        if (found) setSelectedMentor(found);
-      });
-    };
+				if (distance < closestDistance) {
+					closestDistance = distance;
+					closestElement = el;
+				}
+			});
 
-    container.addEventListener("scroll", handleScroll);
-    handleScroll();
+			if (closestElement) {
+				const selected = dummyMentors.find(
+					(mentor) => mentor.id === closestElement?.id
+				);
+				setSelectedMentor(selected || null);
+			}
+		};
 
-    return () => {
-      container.removeEventListener("scroll", handleScroll);
-      cancelAnimationFrame(rafId.current);
-    };
+		scrollContainer.addEventListener("scroll", handleScroll);
+		handleScroll();
+
+		return () => {
+			scrollContainer.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	useEffect(() => {
+		const container = mentorScrollRef.current;
+		if (!container) return;
+
+		const scroll = () => {
+		if (!hovered) {
+			if (
+			container.scrollLeft + container.clientWidth >=
+			container.scrollWidth
+			) {
+			container.scrollTo({ left: 0, behavior: "smooth" });
+			} else {
+			container.scrollBy({ left: 1, behavior: "smooth" });
+			}
+		}
+		};
+
+		const interval = setInterval(scroll, 2000);
+		return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
+	return (
+		<>
+		<div className='w-full bg-[#f3f3f3f7] text-black'>
 
-    const scroll = () => {
-      if (!isHovering) {
-        if (
-          container.scrollLeft + container.clientWidth >=
-          container.scrollWidth
-        ) {
-          container.scrollTo({ left: 0, behavior: "smooth" });
-        } else {
-          container.scrollBy({ left: 1, behavior: "smooth" });
-        }
-      }
-    };
+			{/* Header Row */}
+			<div className='w-full flex justify-between pt-6 pb-3 px-5 lg:px-23 gap-4'>
+			<h1 className='text-3xl sm:text-4xl md:text-5xl font-bold whitespace-nowrap'>Find Mentors-</h1>
+			<button className='hidden text-sm lg:text-xl lg:flex gap-2 sm:gap-3 items-center px-4 py-1 lg:py-2 rounded-full bg-[#5BE38D] cursor-pointer hover:bg-green-400 md:px-12 justify-center'><span className="font-bold text-md">VIEW ALL</span>
+				<i className="ri-graduation-cap-line text-2xl sm:text-3xl"></i>
+			</button>
+			</div>
 
-    const interval = setInterval(scroll, 2000);
-    return () => clearInterval(interval);
-  }, []);
+			{/* Filter Bar */}
+			<div className='w-full bg-[#70B2FF] px-4 sm:px-23 py-3'>
 
-  return (
-    <>
-          {/* Filters */}
-          <div className='w-full bg-[#f3f3f3f7] text-black'>
-    
-            {/* Header Row */}
-                <div className='w-full flex justify-between pt-6 pb-3 px-5 lg:px-23 gap-4'>
-                <h1 className='text-3xl sm:text-4xl md:text-5xl font-bold whitespace-nowrap'>Find Colleges-</h1>
-                <button className='hidden text-sm lg:text-xl lg:flex gap-2 sm:gap-3 items-center px-4 py-1 lg:py-2 rounded-full bg-[#5BE38D] cursor-pointer hover:bg-green-400 md:px-12 justify-center'><span className="font-bold text-md">VIEW ALL</span>
-                    <i className="ri-graduation-cap-line text-2xl sm:text-3xl"></i>
-                </button>
-                </div>
-    
-            {/* Filter Bar */}
-            <div className='w-full bg-[#70B2FF] px-4 sm:px-23 py-3'>
-    
-              {/* Toggle Button for Mobile (below lg / 1024px) */}
-              <div className='lg:hidden flex justify-between items-center'>
-                <p className='text-xl font-bold flex items-center gap-2'>
-                  Filters <i className="ri-filter-3-fill font-medium"></i>
-                </p>
-                <button
-                  onClick={() => setShowFilters(!showFilters)}
-                  className='text-base bg-white px-4 py-2 rounded-full flex items-center gap-2'
-                >
-                  {showFilters ? 'Hide' : 'Show'} Options
-                  <i className="ri-arrow-drop-down-line text-2xl"></i>
-                </button>
-              </div>
-    
-              {/* Filters Container */}
-              <div className={`mt-4 lg:mt-0 ${showFilters ? 'block' : 'hidden'} lg:flex lg:justify-between lg:items-center lg:flex-row flex-col gap-4`}>
-    
-                {/* Left Filters */}
-                <div className='flex flex-col sm:flex-row flex-wrap gap-3 items-start sm:items-center'>
-                  <div className='flex items-center gap-2 text-lg sm:text-xl font-bold '>
-                    <span className=''>Filters</span>
-                    <i className="ri-filter-3-fill font-medium text-2xl"></i>
-                  </div>
-                <hr className="rotate-90 w-12 rounded-full border-3 border-black"/>
-                  <div className="relative w-fit flex">
-                      <button onClick={()=>setShowSelect(prev=>!prev)} className={`text-base sm:text-lg flex items-center rounded-full gap-2 font-semibold border border-black px-4 py-0 cursor-pointer overflow-hidden transition-all duration-200 ${showSelect && "w-fit"}`}>                <span className="font-semibold text-sm">Courses</span>
-                        <i className="ri-book-shelf-line text-2xl font-medium"></i>
-                        {showSelect && (
-                        <MultiSelect
-                        data={['Medical', 'Engineering', 'Commerce', 'Humanities']}
-                        defaultValue={['Medical', 'Engineering', 'Commerce']}
-                        clearable
-                        styles={{
-                          input: {
-                            backgroundColor: 'transparent',
-                            border: 'none',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                          }
-                        }}
-                      />                
-                      )}
-                        <i className="ri-arrow-drop-right-line text-3xl text-white font-medium"></i>
-                      </button>
-                </div>
-    
-                  <button onClick={()=>setInstitution(prev=>!prev)} className={`text-base sm:text-lg flex items-center rounded-full gap-2 font-semibold border border-black px-4 py-0 cursor-pointer overflow-hidden transition-all duration-200 ${institution && "w-fit"}`}>
-                    <span className="font-semibold text-sm">Institution Types</span>
-                    <i className="ri-bank-line text-2xl font-medium"></i>
-                    {institution && (
-                        <MultiSelect
-                        data={['Goverment', 'Gov. Aided', 'Private']}
-                        defaultValue={['Goverment', 'Gov. Aided', 'Private']}
-                        clearable
-                        styles={{
-                          input: {
-                            backgroundColor: 'transparent',
-                            border: 'none',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                          }
-                        }}
-                      />                
-                    )}
-                    <i className="ri-arrow-drop-right-line text-3xl text-white font-medium"></i>
-                  </button>
-                </div>
-    
-                {/* Advanced Filters */}
-                <div className='w-full sm:w-auto mt-2 lg:mt-0'>
-                  <button className='text-base sm:text-lg bg-white flex items-center rounded-full gap-2 font-semibold border-1 px-4 py-1 w-full sm:w-auto whitespace-nowrap border-black'>
-                    <span className="font-semibold text-sm">Advanced Filters</span>
-                    <i className="ri-equalizer-line text-xl font-light"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-    <div
-      className="py-3 bg-[#f3f3f3] flex flex-col-reverse lg:flex-col"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
-      <div ref={scrollRef} className="scrollbar-hide w-full h-[450px] overflow-x-auto flex items-center snap-x snap-mandatory gap-[30px] px-[calc((50vw-10px))]">
-        {dummyMentors.map((mentor, index) => {
-          const isSelected = selectedMentor?.id === mentor.id;
-          const isHovered = hoveredIndex === index;
+			{/* Toggle Button for Mobile (below lg / 1024px) */}
+			<div className='lg:hidden flex justify-between items-center'>
+				<p className='text-xl font-bold flex items-center gap-2'>
+				Filters <i className="ri-filter-3-fill font-medium"></i>
+				</p>
+				<button
+				onClick={() => setShowFilters(!showFilters)}
+				className='text-base bg-white px-4 py-2 rounded-full flex items-center gap-2'
+				>
+				{showFilters ? 'Hide' : 'Show'} Options
+				<i className="ri-arrow-drop-down-line text-2xl"></i>
+				</button>
+			</div>
 
-          const sizeClass = isSelected
-            ? "w-[250px] h-[400px]"
-            : "w-[200px] h-[300px]";
+			{/* Filters Container */}
+			<div className={`mt-4 lg:mt-0 ${showFilters ? 'block' : 'hidden'} lg:flex lg:justify-between lg:items-center lg:flex-row flex-col gap-4`}>
 
-          return (
-            <div
-              id={mentor.id}
-              key={mentor.id}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              className={`mentor relative shrink-0 snap-center ${sizeClass} rounded-xl overflow-hidden transition-all duration-500`}
-            >
-              <img
-                src={`/mentors/${mentor.profile_pic}`}
-                className="w-full h-full object-cover absolute top-0 left-0"
-                alt={mentor.name}
-              />
-              <motion.div
-                initial={false}
-                animate={isHovered || isSelected ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 1 }}
-                className="absolute bottom-0 bg-white bg-opacity-90 w-full p-4 text-left z-10"
-              >
-                <h3 className="text-xl font-bold">{mentor.name}</h3>
-                <p className="text-sm">{mentor.branch} • {mentor.institution}</p>
-                <p className="text-sm font-light"><b>Expertise:</b> {mentor.expertise}</p>
-                {(isHovered || isSelected) && (
-                  <p className="text-xs mt-2">{mentor.description}</p>
-                )}
-              </motion.div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-    </>
-  );
+				{/* Left Filters */}
+				<div className='flex flex-col sm:flex-row flex-wrap gap-3 items-start sm:items-center'>
+				<div className='flex items-center gap-2 text-lg sm:text-xl font-bold '>
+					<span className=''>Filters</span>
+					<i className="ri-filter-3-fill font-medium text-2xl"></i>
+				</div>
+				<hr className="rotate-90 w-12 rounded-full border-3 border-black"/>
+				<div className="relative w-fit flex">
+					<button onClick={()=>setShowSelect(prev=>!prev)} className={`text-base sm:text-lg flex items-center rounded-full gap-2 font-semibold border border-black px-4 py-0 cursor-pointer overflow-hidden transition-all duration-200 ${showSelect && "w-fit"}`}>                <span className="font-semibold text-sm">Courses</span>
+						<i className="ri-book-shelf-line text-2xl font-medium"></i>
+						{showSelect && (
+						<MultiSelect
+						data={['Medical', 'Engineering', 'Commerce', 'Humanities']}
+						defaultValue={['Medical', 'Engineering', 'Commerce']}
+						clearable
+						styles={{
+						input: {
+							backgroundColor: 'transparent',
+							border: 'none',
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center'
+						}
+						}}
+					/>                
+					)}
+						<i className="ri-arrow-drop-right-line text-3xl text-white font-medium"></i>
+					</button>
+				</div>
+
+				<button onClick={()=>setInstitution(prev=>!prev)} className={`text-base sm:text-lg flex items-center rounded-full gap-2 font-semibold border border-black px-4 py-0 cursor-pointer overflow-hidden transition-all duration-200 ${institution && "w-fit"}`}>
+					<span className="font-semibold text-sm">Institution Types</span>
+					<i className="ri-bank-line text-2xl font-medium"></i>
+					{institution && (
+						<MultiSelect
+						data={['Goverment', 'Gov. Aided', 'Private']}
+						defaultValue={['Goverment', 'Gov. Aided', 'Private']}
+						clearable
+						styles={{
+						input: {
+							backgroundColor: 'transparent',
+							border: 'none',
+							display: 'flex',
+							justifyContent: 'center',
+							alignItems: 'center'
+						}
+						}}
+					/>                
+					)}
+					<i className="ri-arrow-drop-right-line text-3xl text-white font-medium"></i>
+				</button>
+				</div>
+
+				{/* Advanced Filters */}
+				<div className='w-full sm:w-auto mt-2 lg:mt-0'>
+				<button className='text-base sm:text-lg bg-white flex items-center rounded-full gap-2 font-semibold border-1 px-4 py-1 w-full sm:w-auto whitespace-nowrap border-black'>
+					<span className="font-semibold text-sm">Advanced Filters</span>
+					<i className="ri-equalizer-line text-xl font-light"></i>
+				</button>
+				</div>
+			</div>
+			</div>
+		</div>
+		{/* Filter Section Ends */}
+
+		<div className="py-3 bg-[#f3f3f3] flex flex-col-reverse lg:flex-col">
+			<div className="w-full">
+				<img src="/arrow.png" alt="" className="mx-auto w-1/2 lg:w-1/4" />
+				<div className="mx-10 mt-3 flex lg:hidden">
+					<button className="w-full py-2 rounded-full bg-[#5BE38D] flex justify-center items-center"><span className="font-semibold">VIEW ALL<i className="ri-graduation-cap-line text-2xl sm:text-3xl ml-2"></i></span></button>
+				</div>
+			</div>
+			<div className="flex flex-col gap-2">
+				<div
+					ref={mentorScrollRef}
+					className="scrollbar-hide relative w-full h-[450px] overflow-auto flex items-center snap-x snap-mandatory gap-[30px] px-[calc((50vw-10px))]"
+				>
+					{dummyMentors.length > 0 &&
+						dummyMentors.map((mentor, index) => {
+							const selectedIndex = dummyMentors.findIndex(
+								(m) => m.id === selectedMentor?.id
+							);
+							const isActive = index === selectedIndex && hovered === index;
+
+							return (
+								<button
+									onMouseEnter={() => setHovered(index)}
+									onMouseLeave={() => setHovered(null)}
+									key={index}
+									id={mentor.id}
+									className={`mentor rounded-lg overflow-hidden transition-all relative w-[150px] h-[300px] my-1 text-3xl snap-center font-semibold min-w-[100px] leading-normal flex items-center justify-center shrink-0 ripple p-1
+										${
+											index === selectedIndex + 1 ||
+											index === selectedIndex - 1
+												? "h-[350px] w-[250px]"
+												: index === selectedIndex
+												? "h-[400px] w-[250px]"
+												: "w-[200px] h-[300px]"
+										}
+									`}
+									onClick={() => {
+										setSelectedMentor(mentor);
+									}}
+								>
+									{!isActive && (
+										<div className="w-full absolute bottom-0 z-20">
+											<div className="mx-2 flex bg-white text-start flex-col p-4 px-3 gap-1 transtion-all cursor-pointer">
+												<h3 className="text-xl whitespace-nowrap font-bold flex items-center">
+													{mentor.name}
+													<i className="fas fa-badge-check text-xs pl-1 pb-4 text-accent" />
+												</h3>
+												<div className="flex text-xs items-center gap-2 font-light">
+													<p>{mentor.branch} .</p>
+													<p>{mentor.institution}</p>
+												</div>
+												<p className="text-xs font-light flex items-center gap-2">
+													<span className="font-semibold">Expertise:</span>
+													{mentor.expertise}
+												</p>
+											</div>
+										</div>
+									)}
+									<motion.div
+										className="absolute bottom-0 z-20 w-full"
+										initial={false}
+										animate={
+											isActive
+												? { opacity: 1, y: 0 }
+												: { opacity: 1, y: 150 }
+										}
+										transition={{
+											duration: 0.25,
+											ease: "easeOut",
+										}}
+									>
+										<div className="flex bg-white text-start flex-col p-4 px-6 gap-1 transtion-all cursor-pointer">
+											<div
+												className={`${
+													isActive ? "flex" : "hidden"
+												} items-center gap-2`}
+											>
+												<span className="text-sm font-semibold flex items-center">
+													Rating:
+												</span>
+												<div className="flex items-center gap-0">
+													{Array(mentor.rating)
+														.fill(0)
+														.map((_, i) => (
+															<i
+																key={i}
+																className="ri-star-s-fill text-xs"
+															></i>
+														))}
+												</div>
+											</div>
+											<h3 className="text-2xl font-bold flex items-center">
+												{mentor.name}
+												<i className="fas fa-badge-check text-xs pl-1 pb-4 text-accent" />
+											</h3>
+											<div className="flex text-xs items-center gap-2 font-light">
+												<p>{mentor.branch}.</p>
+												<p>{mentor.institution}</p>
+											</div>
+											<p className="text-sm font-light flex items-center gap-2">
+												<span className="font-semibold">Expertise:</span>
+												{mentor.expertise}
+											</p>
+											<div
+												className={`${
+													isActive
+														? "flex flex-col gap-4"
+														: "hidden"
+												} transition-all`}
+											>
+												<p className="text-xs font-light text-start">
+													{mentor.description}
+												</p>
+												<button className="py-1 w-full font-regular text-center hover:bg-[#80e8b0] transition-all bg-accent-active rounded-md bg-[#5BE38D] cursor-pointer">
+													<span className="font-bold text-xl">View</span>
+												</button>
+											</div>
+										</div>
+									</motion.div>
+									<img
+										src={`/mentors/${mentor.profile_pic}`}
+										alt={`${mentor.name}'s profile`}
+										className="absolute top-0 w-full h-full object-cover"
+									/>
+								</button>
+							);
+						})}
+				</div>
+			</div>
+		</div>
+		</>
+	);
 };
 
 export default FindMentors;
