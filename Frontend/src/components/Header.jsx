@@ -48,8 +48,8 @@ function Header() {
       <div className='w-full bg-[#2E2E2E] px-4 sm:px-25 py-4 lg:py-3 flex items-center justify-between text-white'>
         <div className='flex items-center gap-4 sm:gap-6'>
           <div className='flex items-center cursor-pointer' onClick={() => navigate("/")}>
-            <img className='w-5' src="https://www.knowyourcolleges.com/static/media/logo.84255c87a633c115a0b1.png" alt="logo" />
-            <span className='text-[1.35rem] font-bold ml-1'>KYC</span>
+            <img className='w-7' src="https://www.knowyourcolleges.com/static/media/logo.84255c87a633c115a0b1.png" alt="logo" />
+            <span className='text-[1.65rem] font-bold ml-1'>KYC</span>
           </div>
 
           {/* Desktop Search */}

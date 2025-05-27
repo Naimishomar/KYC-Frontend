@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 
 const socials = [
   {
     name: 'Instagram',
-    image: '/insta.png', 
+    image: '/insta.png',
+    url: 'https://www.instagram.com/knowyourcolleges_kyc/',
   },
   {
     name: 'Linkedin',
     image: '/linkedin.png',
+    url: 'https://www.linkedin.com/company/know-your-colleges/',
   },
   {
     name: 'Twitter',
     image: '/twitter.png',
+    url: 'https://x.com/Colleges_kyc',
   },
 ];
 
@@ -38,8 +40,11 @@ const SocialMedia = () => {
 
         <div className="mt-8 flex flex-col items-start text-xl sm:text-2xl md:text-3xl font-medium px-4 sm:px-8">
           {socials.map((item, i) => (
-            <div
+            <a
               key={item.name}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`transition-all duration-300 mb-2 ${
                 i === index ? 'text-black font-bold' : 'text-gray-600'
               }`}
@@ -48,7 +53,7 @@ const SocialMedia = () => {
                 <span className="w-2 h-2 rounded-full bg-black inline-block"></span>
                 {item.name}
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
@@ -57,16 +62,22 @@ const SocialMedia = () => {
       <div className="w-full relative flex mx-auto">
         <div className="relative w-full h-full sm:h-80 md:h-84 lg:h-full rounded-2xl overflow-hidden ml-5">
           <AnimatePresence mode="wait">
-            <motion.img
+            <motion.a
               key={socials[index].image}
-              src={socials[index].image}
-              alt={socials[index].name}
+              href={socials[index].url}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="w-[95%] object-cover py-5"
-            />
+            >
+              <img
+                src={socials[index].image}
+                alt={socials[index].name}
+                className="w-[95%] object-cover py-5"
+              />
+            </motion.a>
           </AnimatePresence>
         </div>
       </div>

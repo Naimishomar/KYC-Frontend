@@ -216,8 +216,6 @@ const FindColleges = () => {
         {/* Filter Bar */}
         <div className='w-full bg-[#70B2FF] px-4 sm:px-23 py-3'>
 
-          {/* Toggle Button for Mobile (below lg / 1024px) */}
-
           {/* Filters Container */}
           <div className={`mt-4 lg:mt-0 flex lg:flex lg:justify-between lg:items-center lg:flex-row flex-col gap-4`}>
 
@@ -230,7 +228,7 @@ const FindColleges = () => {
             <hr className="rotate-90 w-12 rounded-full border-3 border-black"/>
 
               <div className="relative w-fit flex">
-                  <button onClick={()=>setShowSelect(prev=>!prev)} className={`text-base sm:text-lg flex items-center rounded-full gap-2 font-semibold border border-black px-4 py-0 cursor-pointer overflow-hidden transition-all duration-200 ${showSelect && "w-fit"}`}><span className="font-semibold text-sm">Courses</span>
+                  <button onClick={()=>setShowSelect(prev=>!prev)} className={`text-base sm:text-lg flex items-center rounded-full gap-2 font-semibold border border-black px-4 py-0 cursor-pointer overflow-hidden transition-all duration-200 ${showSelect && "overflow-auto"}`}><span className="font-semibold text-sm">Courses</span>
                     <i className="ri-book-shelf-line text-2xl font-medium"></i>
                     {showSelect && (
                     <MultiSelect
